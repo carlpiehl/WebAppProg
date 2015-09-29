@@ -13,7 +13,7 @@ public class LoginDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 
-		String url = "jdbc:mysql://localhost:3306/";
+		String url = "jdbc:mysql://localhost:3306/";//Harmun Test
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
