@@ -9,6 +9,6 @@
 	<h3>Login successful!!!</h3>
 	<h4>
 		Hello,
-		<%=session.getAttribute("name")%> THIS IS A TEST</h4>
+		<%=session.getAttribute("name")%> THIS IS A NEW TEST</h4>
 </body>
 </html>
