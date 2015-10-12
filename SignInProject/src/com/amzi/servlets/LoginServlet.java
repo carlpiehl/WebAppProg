@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet{
           
         String n=request.getParameter("username");    
         String p=request.getParameter("userpass");   
-          
+        
         HttpSession session = request.getSession(false);  
         if(session!=null)  
         session.setAttribute("name", n);  
@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet{
             out.print("<p style=\"color:red\">Sorry username or password error</p>");    
             RequestDispatcher rd=request.getRequestDispatcher("index.jsp");    
             rd.include(request,response);    
-        }    
+        }
   
         out.close();    
     }    
