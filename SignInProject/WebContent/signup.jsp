@@ -6,7 +6,7 @@
 <title>Sign Up</title>
 </head>
 <body>
-	<form action="SignUpServlet" method="post">
+	<form action="signupServlet" method="post">
 		<fieldset style="width: 300px">
 			<legend> Sign Up </legend>
 			
@@ -16,16 +16,16 @@
 					 <td><input type="text" name="uname" required="required" /></td>
 				</tr>
 				<tr>
-					  <td>Password:</td>
-					  <td><input type="password" name="upass" required="required" /></td>
-					  
-					  <%-- add password confirmation--%>
+					 <td>Email:</td>
+           <td><input type="email" name="uemail" required="required" /></td>
 				</tr>
 				<tr>
-					<td>Email:</td>
-					<td><input type="email" name="uemail" required="required" /></td>
+				   <td>Password:</td>
+           <td><input type="password" name="upass" required="required" /></td>
+           <%-- add password confirmation--%>
+				</tr>
 				<tr>
-					<td><input type="submit" value="signup" /></td>
+					<td><input type="submit" value="Sign Up" /></td>
 				</tr>
 			</table>
 		</fieldset>

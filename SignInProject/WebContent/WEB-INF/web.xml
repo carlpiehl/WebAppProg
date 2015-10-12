@@ -14,12 +14,12 @@
 	</servlet-mapping>
 
   <servlet>
-    <servlet-name>sign in</servlet-name>
+    <servlet-name>sign up</servlet-name>
     <servlet-class>com.amzi.servlets.SignupServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>sign in</servlet-name>
+    <servlet-name>sign up</servlet-name>
     <url-pattern>/signupServlet</url-pattern>
   </servlet-mapping>
 
