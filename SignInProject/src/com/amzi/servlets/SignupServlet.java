@@ -34,21 +34,17 @@ public class SignupServlet extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		String name=request.getParameter("uname");
-		String pass=request.getParameter("upass");
 		String email=request.getParameter("uemail");
-	
+		String pass=request.getParameter("upass");
+		
 		HttpSession session = request.getSession(false);  
     	if(session!=null){
     		session.setAttribute("name", name);
     	}
-		//This part should be in an if method, but currently signUp is void
-		//according to mebigfatguy on irc, this should not occur here, do it in signUp
-    	//we will need a connection pool
+		//TODO: Add error checking
     	accountDao.getConnection();
-		//Make sure to add validation in the sign up, so if this returns say -1,
-		//it means the email was already in use and we should print an error,
-		//then .include and return
-		accountDao.signUp(name, pass, email);
+    	//TODO: Add validation, write according message below
+		accountDao.signUp(name, email, pass);
 		
 		out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
 		RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
