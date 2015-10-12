@@ -6,7 +6,7 @@
 <title>Sign Up</title>
 </head>
 <body>
-	<form action="SignUpServlet" method="post">
+	<form action="signupServlet" method="post">
 		<fieldset style="width: 300px">
 			<legend> Sign Up </legend>
 			
