@@ -14,15 +14,15 @@ public class LoginDao {
 		ResultSet rs = null;
 
 		String url = "jdbc:mysql://localhost:3306/";
-		String dbName = "form";
+		String dbName = "store_db";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "tqbfjotld%5*8";
+		String password = "root";
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url + dbName, userName, password);
 
-			pst = conn.prepareStatement("select * from login where user=? and password=?");
+			pst = conn.prepareStatement("select * from users where uname=? and pass=?");
 			pst.setString(1, name);
 			pst.setString(2, pass);
 
