@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+body {
+	font-family: 'arial';
+	background-color: #fdf6e3;
+}
+
+div#header {
+	color: #536871;
+	background: #293134;
+	font-size: 32;
+	line-height: 80px;
+	padding: 5px;
+	position: relative;
+    top: 0;
+	margin-bottom: 60px;
+	text-align: center;
+	link: #fff;
+}
+
+body a {
+    color: #536871;
+    text-decoration: none;
+}
+
+div#copyright{
+	color: #828282;
+}

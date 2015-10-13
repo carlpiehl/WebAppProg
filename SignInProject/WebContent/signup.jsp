@@ -6,6 +6,7 @@
 <title>Sign Up</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 	<form action="signupServlet" method="post">
 		<fieldset style="width: 300px">
 			<legend> Sign Up </legend>
@@ -30,5 +31,6 @@
 			</table>
 		</fieldset>
 	</form>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

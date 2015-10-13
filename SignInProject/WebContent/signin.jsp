@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Sign In</title>
 </head>
 <body>
+<%@ include file="header.jsp"%>
 <form action="loginServlet" method="post">
 		<fieldset style="width: 300px">
 			<legend> Login to App </legend>
@@ -25,5 +26,6 @@
 			</table>
 		</fieldset>
 	</form>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
