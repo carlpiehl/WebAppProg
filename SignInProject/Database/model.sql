@@ -44,10 +44,11 @@ DROP TABLE IF EXISTS `store_db`.`products` ;
 CREATE TABLE IF NOT EXISTS `store_db`.`products` (
   `pk_product` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `description` VARCHAR(255) NULL,
+  `descriptionShort` VARCHAR(255) NULL,
+  `descriptionLong` VARCHAR(MAX) NULL,
   `price` DECIMAL(7,2) NULL,
   `quantity` INT NULL,
-  `rating` VARCHAR(45) NULL,
+  `rating` DECIMAL(2,1) NULL,
   PRIMARY KEY (`pk_product`))
 ENGINE = InnoDB;
 

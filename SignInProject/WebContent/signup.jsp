@@ -9,24 +9,24 @@
 	<%@ include file="header.jsp"%>
 	<form action="signupServlet" method="post">
 		<fieldset style="width: 300px">
-			<legend> Sign Up </legend>
+			<legend><%out.print(bundle.getString("my.sign_up"));%></legend>
 
 			<table>
 				<tr>
-					<td>Username:</td>
+					<td><%out.print(bundle.getString("my.username"));%>:</td>
 					<td><input type="text" name="uname" required="required" /></td>
 				</tr>
 				<tr>
-					<td>Email:</td>
+					<td><%out.print(bundle.getString("my.email"));%>:</td>
 					<td><input type="email" name="uemail" required="required" /></td>
 				</tr>
 				<tr>
-					<td>Password:</td>
+					<td><%out.print(bundle.getString("my.password"));%>:</td>
 					<td><input type="password" name="upass" required="required" /></td>
 					<%-- add password confirmation--%>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Sign Up" /></td>
+					<td><input type="submit" value=<%out.print(bundle.getString("my.sign_up_label"));%> /></td>
 				</tr>
 			</table>
 		</fieldset>

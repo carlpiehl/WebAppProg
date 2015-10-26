@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<h1>Developers:</h1>
+	<h1><%out.print(bundle.getString("my.developers"));%>:</h1>
 	<ul>
 		<li>Carl Piehl</li>
 		<li>Omid Vaziri</li>

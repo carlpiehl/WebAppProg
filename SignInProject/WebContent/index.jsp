@@ -7,9 +7,9 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<h3>Welcome to the online store home page</h3>
-	<h3>Today's Deals!!!</h3>
-	<p>List of Deals Here</p>
+	<h3><%out.print(bundle.getString("my.welcome"));%></h3>
+	<h3><%out.print(bundle.getString("my.today's_deals"));%>!!!</h3>
+	<p><%out.print(bundle.getString("my.list_of_deals"));%></p>
 	<ul>
 		<li>GTX Titan X - $1000</li>
 		<li>GNU/Linux - free as in freedom</li>
