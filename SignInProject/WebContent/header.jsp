@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="header">
-		<a href=/SignInProject/index.jsp>The Money Store</a> | <a
+		<a href=/SignInProject/index.jsp>bundle.getString("my.StoreName")</a> | <a
 			href=/SignInProject/signup.jsp>Not a Member?</a>
 		<!-- TODO: Use the Deployment Descriptor for the URL -->
 		| <a href=/SignInProject/signin.jsp>Already a Member?</a>
