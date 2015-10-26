@@ -10,20 +10,20 @@
 	<form action="signupServlet" method="post">
 		<fieldset style="width: 300px">
 			<legend> Sign Up </legend>
-			
+
 			<table>
 				<tr>
-					 <td>Username:</td>
-					 <td><input type="text" name="uname" required="required" /></td>
+					<td>Username:</td>
+					<td><input type="text" name="uname" required="required" /></td>
 				</tr>
 				<tr>
-					 <td>Email:</td>
-           <td><input type="email" name="uemail" required="required" /></td>
+					<td>Email:</td>
+					<td><input type="email" name="uemail" required="required" /></td>
 				</tr>
 				<tr>
-				   <td>Password:</td>
-           <td><input type="password" name="upass" required="required" /></td>
-           <%-- add password confirmation--%>
+					<td>Password:</td>
+					<td><input type="password" name="upass" required="required" /></td>
+					<%-- add password confirmation--%>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Sign Up" /></td>
