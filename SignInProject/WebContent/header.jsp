@@ -4,7 +4,7 @@
 <%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle" %>
 <%@ page import="javax.servlet.*,javax.servlet.http.* "%>
 <%
-	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.Bundle");
+	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle");
 %>
 <html>
 <head>
@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div id="header">
-		<a href=/SignInProject/index.jsp><% bundle.getString("my.StoreName"); %></a> | <a
+		<a href=/SignInProject/index.jsp><%bundle.getString("my.storeName"); %></a> | <a
 			href=/SignInProject/signup.jsp>Not a Member?</a>
 		<!-- TODO: Use the Deployment Descriptor for the URL -->
 		| <a href=/SignInProject/signin.jsp>Already a Member?</a>

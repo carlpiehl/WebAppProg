@@ -7,19 +7,19 @@ public class Internationalization {
 
 	public static void main(String[] args) throws Exception {
 
-		ResourceBundle bundle1 = ResourceBundle.getBundle("TestBundle");
+		ResourceBundle bundle1 = ResourceBundle.getBundle("com.amzi.international.TestBundle");
 		displayValues(bundle1);
 
 		Locale defaultLocale = Locale.getDefault();
-		ResourceBundle bundle2 = ResourceBundle.getBundle("TestBundle", defaultLocale);
+		ResourceBundle bundle2 = ResourceBundle.getBundle("com.amzi.international.TestBundle", defaultLocale);
 		displayValues(bundle2);
 
 		Locale swedishLocale = new Locale("sv", "SE");
-		ResourceBundle bundle3 = ResourceBundle.getBundle("TestBundle", swedishLocale);
+		ResourceBundle bundle3 = ResourceBundle.getBundle("com.amzi.international.TestBundle", swedishLocale);
 		displayValues(bundle3);
 
 		Locale nonexistentLocale = new Locale("xx", "XX");
-		ResourceBundle bundle4 = ResourceBundle.getBundle("TestBundle", nonexistentLocale);
+		ResourceBundle bundle4 = ResourceBundle.getBundle("com.amzi.international.TestBundle", nonexistentLocale);
 		displayValues(bundle4);
 
 	}
