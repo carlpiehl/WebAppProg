@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `store_db`.`products` (
   `pk_product` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `descriptionShort` VARCHAR(255) NULL,
-  `descriptionLong` VARCHAR(MAX) NULL,
+  `descriptionLong` VARCHAR(8000) NULL,
   `price` DECIMAL(7,2) NULL,
   `quantity` INT NULL,
   `rating` DECIMAL(2,1) NULL,
