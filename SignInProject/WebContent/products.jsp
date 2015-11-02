@@ -1,10 +1,10 @@
 <%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
 <html>
 <head>
-<title>Using a DataSource</title>
+<title>Products</title>
 </head>
 <body>
-<h1>Using a DataSource</h1>
+<h1>Product List</h1>
 <%
     Connection connection = null;
     String url = "jdbc:mysql://localhost:8888/";
@@ -12,7 +12,7 @@
     String driver = "com.mysql.jdbc.Driver";
     String uname = "root";
     String pass = "root";
-   
+    
     ResultSet result = null;
     Statement stmt = null;
     ResultSetMetaData rsmd = null;
@@ -21,7 +21,7 @@
     try{
         Class.forName(driver).newInstance();
         connection = DriverManager.getConnection(url + dbName, uname, pass);
-      }catch(Exception e){ //Note, ClassNotFoundException caused error. Ask about this
+      }catch(Exception e){
         e.printStackTrace();
       }
    
@@ -32,7 +32,7 @@
  %>
  <table width="90%" border="1">
    <tr>
-   <% // write out the header cells containing the column labels
+   <%
       try {
          for (int i=1; i<=columns; i++) {
                   if(i == 1){
@@ -42,7 +42,7 @@
          }
    %>
    </tr>
-   <% // now write out one row for each entry in the database table
+   <% 
     int productID = 0;
          while (result.next()) {
             out.write("<tr>");
