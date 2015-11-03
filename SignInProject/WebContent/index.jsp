@@ -3,10 +3,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Application</title>
+	<%@ include file="header.jsp"%>
+	<title><%out.println(bundle.getString("my.welcome")); %></title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
 	<h3><%out.print(bundle.getString("my.welcome"));%></h3>
 	<h3><%out.print(bundle.getString("my.today's_deals"));%>!!!</h3>
 	<p><%out.print(bundle.getString("my.list_of_deals"));%></p>

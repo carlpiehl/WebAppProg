@@ -15,6 +15,7 @@
 		| <a href=/SignInProject/signup.jsp><%out.println(bundle.getString("my.not_a_member") + "?"); %></a>
 		| <a href=/SignInProject/signin.jsp><%out.println(bundle.getString("my.already_a_member") + "?"); %></a>
 		| <a href="/SignInProject/about.jsp"><%out.println(bundle.getString("my.about_us")); %></a>
+		| <a href="/SignInProject/products.jsp"><%out.println(bundle.getString("my.products")); %></a>
 	</div>
 </body>
 </html>

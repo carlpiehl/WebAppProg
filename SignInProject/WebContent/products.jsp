@@ -1,13 +1,15 @@
 <%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
 <html>
 <head>
-<title>Products</title>
+	<%@ include file="header.jsp"%>
+	<title><%out.println(bundle.getString("my.products")); %></title>
 </head>
 <body>
-<h1>Product List</h1>
+	<h1>Product List</h1>
+	
 <%
     Connection connection = null;
-    String url = "jdbc:mysql://localhost:8888/";
+    String url = "jdbc:mysql://localhost:3306/";
     String dbName = "store_db";
     String driver = "com.mysql.jdbc.Driver";
     String uname = "root";
@@ -84,6 +86,7 @@
     }
    
     %>
-</table>
+	</table>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
