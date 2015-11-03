@@ -7,4 +7,4 @@ If you have a bunch of red squiggly lines and can't understand what's wrong with
 
 Why you are getting a 500 error:
 --------------------------------
-Change the port. AccountDAO.java, loginDao.java.
+Change the port. AccountDAO.java, loginDao.java, products.jsp
