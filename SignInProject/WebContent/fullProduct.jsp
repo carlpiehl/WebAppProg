@@ -36,7 +36,47 @@
   rsmd = result.getMetaData();
   columns = rsmd.getColumnCount();
   %>
-    
+  <table width="90%" border="1">
+    <tr>
+    <%  
+      try{
+    	  for(int i=1; i<=columns; i++){
+    		  out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
+    	  }
+    %>
+    </tr>
+    <%
+	      while(result.next()){
+	    	  out.write("<tr>");
+	    	  for(int i=1; i<=columns; i++){
+	    		  out.write("<td><center>" + result.getString(i) + "</center></td>");
+	    	  }
+	    	  out.write("</tr>");
+	      }
+	    
+	      result.close();
+	      pst.close();
+	      connection.close();
+      } //end of try block
+      catch(SQLException e){
+    	  System.out.println("Error " + e);
+      }
+      finally{
+    	  try{
+    		  if(pst != null){
+    			  pst.close();
+    		  }
+    	  }catch(SQLException e){}
+    	  try{
+    		  if(connection != null){
+    			  connection.close();
+    		  }
+    	  }catch(SQLException e){}
+      }
+    %>
+  
+  
+  </table>  
     
     
 </body>
