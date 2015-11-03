@@ -19,18 +19,17 @@ public class LoginServlet extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response)    
             throws ServletException, IOException {    
   
-        response.setContentType("text/html");    
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();    
           
         String n=request.getParameter("username");    
         String p=request.getParameter("userpass");   
         
-        HttpSession session = request.getSession(false);  
-        if(session!=null)  
-        session.setAttribute("name", n);  
-  
-        if(LoginDao.validate(n, p)){    
-            RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");    
+        HttpSession session = request.getSession(true);  
+        
+        if(LoginDao.validate(n, p)){
+        	session.setAttribute("name", n);
+            RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");
             rd.forward(request,response);
         }    
         else{    
