@@ -35,7 +35,7 @@
    <%
       try {
          for (int i=1; i<=columns; i++) {
-                  if(i == 1){
+                  if(i == 1 || i == 4 || i == 7){
                           continue;
                   }
               out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
@@ -52,10 +52,12 @@
                         continue;
                 }
                 if(i == 2){
-              out.write("<td>" + "<a href='fullProduct.jsp?productID=" + productID +"'>" + result.getString(i) + "</a>" + "</td>");
+              out.write("<td><center>" + "<a href='fullProduct.jsp?productID=" + productID +"'>" + result.getString(i) + "</a></center>" + "</td>");
                 }
-                else{
-                        out.write("<td>" + result.getString(i) + "</td>");
+                else if(i == 4 || i == 7){
+                	continue;
+                }else{
+                        out.write("<td><center>" + result.getString(i) + "</center></td>");
                 }
             }
             out.write("</tr>");
