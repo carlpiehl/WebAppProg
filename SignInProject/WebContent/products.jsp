@@ -30,7 +30,7 @@
     stmt = connection.createStatement();
     result = stmt.executeQuery("SELECT * FROM products");
     rsmd = result.getMetaData();
-    columns = rsmd.getColumnCount();
+    columns = rsmd.getColumnCount(); 
  %>
  <table width="90%" border="1">
    <tr>
@@ -88,5 +88,5 @@
     %>
 	</table>
 	<%@ include file="footer.jsp"%>
-</body>
+	</body>
 </html>
