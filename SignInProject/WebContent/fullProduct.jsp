@@ -9,6 +9,7 @@
 		<title>Product Page</title>
 		<%@ include file="header.jsp"%>
 	</head>
+	<div id="addToCart">add to cart</div>
 <body>
   <%
   Connection connection = null;

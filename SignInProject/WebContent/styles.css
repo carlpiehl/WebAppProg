@@ -44,8 +44,22 @@ td {
 
 h1 {
 	padding-left: 20px;
+	width: 500px;
 }
 
 #productDesk {
 	padding-left: 20px;
+	right: 20px;
+	top: 20px;
+}
+
+#addToCart {
+	background: #859900;
+	color: #000000;
+	font-size: 28px;
+	padding: 10px;
+	position: absolute;
+	right: 2%;
+	border-radius: 10px;
+	width: 140px;
 }
