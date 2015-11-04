@@ -13,7 +13,7 @@ public class LoginDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 
-		String url = "jdbc:mysql://localhost:8888/";
+		String url = "jdbc:mysql://localhost:3306/";
 		String dbName = "store_db";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";

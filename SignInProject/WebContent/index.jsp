@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<%@ include file="header.jsp"%>
+	<%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle" %>
 	<title><%out.println(bundle.getString("my.welcome")); %></title>
 </head>
 <body>

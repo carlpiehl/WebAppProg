@@ -12,7 +12,7 @@ public class AccountDAO {
 	Connection connection = null;
 	
 	public Connection getConnection(){
-		String url = "jdbc:mysql://localhost:8888/";
+		String url = "jdbc:mysql://localhost:3306/";
 		String dbName = "store_db";
 		String driver = "com.mysql.jdbc.Driver";
 		String uname = "root";

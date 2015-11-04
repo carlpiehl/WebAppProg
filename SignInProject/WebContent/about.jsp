@@ -5,9 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>About Us</title>
+<link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet" type="text/css"/>
+<%@ include file="header.jsp"%>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
 	<h1><%out.print(bundle.getString("my.developers"));%>:</h1>
 	<ul>
 		<li>Carl Piehl</li>
