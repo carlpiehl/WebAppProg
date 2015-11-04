@@ -18,6 +18,7 @@
 		<li>Micro$hill Botnet 10 - $100</li>
 		<li>5 year old Gentoo thinkpad - $50</li>
 	</ul>
+	<img src='http://i.imgur.com/gW3whO8.jpg'/>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
