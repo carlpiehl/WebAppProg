@@ -5,6 +5,9 @@
 <%@ page import="javax.servlet.*,javax.servlet.http.* "%>
 <%
 	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle");
+	Locale locale = request.getLocale();
+	String language = locale.getLanguage();
+	String country = locale.getCountry();
 %>
 <html>
 <head>
