@@ -53,7 +53,7 @@ h1 {
 	top: 20px;
 }
 
-#addToCart {
+#addToCart.submit{
 	background: #859900;
 	color: #000000;
 	font-size: 28px;

@@ -31,6 +31,7 @@
   }
   
   String productID = request.getParameter("productID");
+  
   pst = connection.prepareStatement("SELECT * FROM products WHERE pk_product = ?");
   pst.setString(1, productID);
   
@@ -78,10 +79,14 @@
       }catch(SQLException e){}
   }
     %>
+    <div id="addToCart">
+    <form action="addCartServlet" method="post">
+      <input type="hidden" name="productID" value="<%=productID%>">
+      <input type="submit" value="Add To Cart">
+    </form>
+    <a href="cart.jsp">View Cart</a>
     </div>
-    <a href="cart.jsp">
-    	<div id="addToCart">add to cart</div>
-    </a>
+    
   <%@ include file="footer.jsp"%>
 </body>
 </html>

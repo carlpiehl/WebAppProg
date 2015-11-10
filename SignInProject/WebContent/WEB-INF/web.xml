@@ -23,6 +23,16 @@
 		<url-pattern>/signupServlet</url-pattern>
 	</servlet-mapping>
 
+  <servlet>
+    <servlet-name>addCart</servlet-name>
+    <servlet-class>com.amzi.servlets.addCartServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>addCart</servlet-name>
+    <url-pattern>/addCartServlet</url-pattern>
+  </servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

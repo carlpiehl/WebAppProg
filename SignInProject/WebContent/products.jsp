@@ -14,7 +14,7 @@
     String driver = "com.mysql.jdbc.Driver";
     String uname = "root";
     String pass = "root";
-    
+     
     ResultSet result = null;
     Statement stmt = null;
     ResultSetMetaData rsmd = null;
