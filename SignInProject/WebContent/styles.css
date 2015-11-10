@@ -53,13 +53,17 @@ h1 {
 	top: 20px;
 }
 
-#addToCart.submit{
-	background: #859900;
-	color: #000000;
-	font-size: 28px;
-	padding: 10px;
-	position: absolute;
-	right: 2%;
-	border-radius: 10px;
-	width: 140px;
+#cartButton {
+     background: #859900!important;
+     border:none; 
+     font: inherit; 
+     cursor: pointer;
+     color: #000000;
+	 font-size: 28px;
+	 padding: 10px!important;
+	 right: 2%;
+	 border-radius: 10px;
+	 width: 180px;
+	 position: fixed;
+	 top: 240px;
 }

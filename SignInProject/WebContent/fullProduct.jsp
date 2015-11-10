@@ -80,11 +80,10 @@
   }
     %>
     <div id="addToCart">
-    <form action="addCartServlet" method="post">
-      <input type="hidden" name="productID" value="<%=productID%>">
-      <input type="submit" value="Add To Cart">
-    </form>
-    <a href="cart.jsp">View Cart</a>
+    	<form action="addCartServlet" method="post">
+      		<input type="hidden" name="productID" value="<%=productID%>">
+      		<input id="cartButton" type="submit" value="add to cart" >
+    	</form>
     </div>
     
   <%@ include file="footer.jsp"%>

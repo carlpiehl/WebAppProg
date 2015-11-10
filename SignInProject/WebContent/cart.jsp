@@ -7,6 +7,7 @@
 	<%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle" %>
 	<title>Cart</title>
 </head>
+
 <%
     Connection connection = null;
     String url = "jdbc:mysql://localhost:3306/";
@@ -36,6 +37,7 @@
     columns = rsmd.getColumnCount();
  %>
 <body>
+	<h1>Cart</h1>
 	<table width="90%" border="1">
 		 <tr>
 		 <%

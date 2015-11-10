@@ -32,5 +32,6 @@ public class addCartServlet extends HttpServlet{
 		RequestDispatcher rd = request.getRequestDispatcher("fullProduct.jsp?productID="+productID);
 		out.print("Product has been added to cart");
 		rd.include(request, response);
+		response.sendRedirect("cart.jsp");
 	}
 }
