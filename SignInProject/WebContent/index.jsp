@@ -8,6 +8,7 @@
 	<title><%out.println(bundle.getString("my.welcome")); %></title>
 </head>
 <body>
+	
 	<h3><%out.print(bundle.getString("my.welcome"));%></h3>
 	<h3><%out.print(bundle.getString("my.today's_deals"));%>!!!</h3>
 	<p><%out.print(bundle.getString("my.list_of_deals"));%></p>
@@ -20,5 +21,6 @@
 		<li>5 year old Gentoo thinkpad - $50</li>
 	</ul>
 	<%@ include file="footer.jsp"%>
+	
 </body>
 </html>

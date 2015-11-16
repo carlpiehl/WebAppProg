@@ -20,8 +20,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
+	</div>
 	<p>
-	<div id="copyright">© 2015 <%out.print(bundle.getString("my.copyright"));%></div> <!-- IGNORE bundle not resolved (CARL) -->
+	<div id="footer">© 2015 <%out.print(bundle.getString("my.copyright"));%> | <a href="/SignInProject/about.jsp"><%out.println(bundle.getString("my.about_us")); %></a></div> <!-- IGNORE bundle not resolved (CARL) -->
 	</p>
 </body>
 </html>
