@@ -16,6 +16,14 @@
 <link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+	<div id="div_language">
+		<form>
+            <select id="language" name="language" onchange="submit()">
+                <option value="en_US" >English</option>
+                <option value="fr_CA" >Francais</option>
+            </select>
+        </form>
+	</div>
 	<div id="header">
 		<a href=/SignInProject/index.jsp><%out.println(bundle.getString("my.store_name")); %></a>
 		| <a href=/SignInProject/signup.jsp><%out.println(bundle.getString("my.not_a_member") + "?"); %></a>

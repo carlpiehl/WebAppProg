@@ -13,7 +13,7 @@ public class CurrencyFormatTest {
 		System.out.println("US: " + defaultFormat.format(num));
 
 		Locale french = new Locale("fr", "CA");
-		NumberFormat swedishFormat = NumberFormat.getCurrencyInstance(french);
-		System.out.println("French: " + swedishFormat.format(num));
+		NumberFormat frenchFormat = NumberFormat.getCurrencyInstance(french);
+		System.out.println("French: " + frenchFormat.format(num));
 	}
 }
