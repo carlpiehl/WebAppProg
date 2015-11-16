@@ -23,9 +23,13 @@ div#header {
 	padding: 5px;
 	position: relative;
 	top: 0;
-	margin-bottom: 60px;
+	margin-bottom: 26px;
 	text-align: center;
 }
+
+fieldset {
+	border: none;
+	}
 
 #footer{
 	background-image: url(headerp.png);
