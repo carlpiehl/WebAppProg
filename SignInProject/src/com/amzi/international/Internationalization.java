@@ -14,13 +14,15 @@ public class Internationalization {
 		ResourceBundle bundle2 = ResourceBundle.getBundle("com.amzi.international.TestBundle", defaultLocale);
 		displayValues(bundle2);
 
-		Locale swedishLocale = new Locale("sv", "SE");
-		ResourceBundle bundle3 = ResourceBundle.getBundle("com.amzi.international.TestBundle", swedishLocale);
+		Locale frenchLocale = new Locale("fr", "CA");
+		ResourceBundle bundle3 = ResourceBundle.getBundle("com.amzi.international.TestBundle", frenchLocale);
 		displayValues(bundle3);
 
 		Locale nonexistentLocale = new Locale("xx", "XX");
 		ResourceBundle bundle4 = ResourceBundle.getBundle("com.amzi.international.TestBundle", nonexistentLocale);
 		displayValues(bundle4);
+		
+		System.out.println(Locale.getDefault());
 
 	}
 

@@ -4,10 +4,10 @@
 <%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle" %>
 <%@ page import="javax.servlet.*,javax.servlet.http.* "%>
 <%
-	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle");
 	Locale locale = request.getLocale();
 	String language = locale.getLanguage();
 	String country = locale.getCountry();
+	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle", locale);
 %>
 <html>
 <head>
