@@ -1,4 +1,4 @@
-package com.amzi.currencyformat;
+package com.amzi.international;
 
 import java.text.NumberFormat;
 import java.util.Locale;
