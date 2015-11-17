@@ -11,17 +11,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 
 <%
-<<<<<<< HEAD
-	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle");
-	Locale locale = request.getLocale();
-	String language = locale.getLanguage();
-	String country = locale.getCountry();
-=======
 	Locale locale = request.getLocale();
 	String language = locale.getLanguage();
 	String country = locale.getCountry();
 	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle", locale);
->>>>>>> refs/heads/internationalization
 %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
