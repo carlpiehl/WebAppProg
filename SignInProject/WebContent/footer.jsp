@@ -22,7 +22,7 @@
 <body>
 	</div>
 	<p>
-	<div id="footer">© 2015 <%out.print(bundle.getString("my.copyright"));%> | <a href="/SignInProject/about.jsp"><%out.println(bundle.getString("my.about_us")); %></a></div> <!-- IGNORE bundle not resolved (CARL) -->
+	<div id="footer">© 2015 <fmt:message key="my.copyright"/> | <a href="/SignInProject/about.jsp"><fmt:message key="my.about_us"/></a></div> <!-- IGNORE bundle not resolved (CARL) -->
 	</p>
 </body>
 </html>

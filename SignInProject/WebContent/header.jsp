@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle" %>
 <%@ page import="javax.servlet.*,javax.servlet.http.* "%>
+<%@ page import="com.amzi.international.*" %>
 
 <!-- IMPORTS FOR JSTL -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -29,7 +30,7 @@
 	<div id="div_language">
 		<form>
             <select id="language" name="language" onchange="submit()">
-            	<option value="" ></option>
+            	<option value="" >Language</option>
                 <option value="en_US" ${language == 'en' ? 'selected' : ''}>English</option>
                 <option value="fr_CA" ${language == 'fr' ? 'selected' : ''}>Francais</option>
             </select>
@@ -37,10 +38,10 @@
 	</div>
 	<div id="header">
 		<a href=/SignInProject/index.jsp><fmt:message key="my.store_name"/></a>
-		| <a href=/SignInProject/signup.jsp><%out.println(bundle.getString("my.not_a_member") + "?"); %></a>
-		| <a href=/SignInProject/signin.jsp><%out.println(bundle.getString("my.already_a_member") + "?"); %></a>
-		| <a href="/SignInProject/products.jsp"><%out.println(bundle.getString("my.products")); %></a>
-		| <a href="/SignInProject/cart.jsp">Cart</a>
+		| <a href=/SignInProject/signup.jsp><fmt:message key="my.not_a_member"/></a>
+		| <a href=/SignInProject/signin.jsp><fmt:message key="my.already_a_member"/></a>
+		| <a href="/SignInProject/products.jsp"><fmt:message key="my.products"/></a>
+		| <a href="/SignInProject/cart.jsp"><fmt:message key="my.cart"/></a>
 	</div>
 	<div id="content">
 </body>
