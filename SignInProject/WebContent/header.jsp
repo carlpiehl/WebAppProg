@@ -11,19 +11,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 
-<%
-	Locale locale = request.getLocale();
-	String language = locale.getLanguage();
-	String country = locale.getCountry();
-	ResourceBundle bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle", locale);
-%>
+
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="com.amzi.international.TestBundle" />
 <html lang="${language}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title><%out.println(bundle.getString("my.store_name")); %></title>
+<title><fmt:message key="my.store_name"/></title>
 <link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>

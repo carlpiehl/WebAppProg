@@ -44,15 +44,14 @@
 	<table width="90%" border="1">
 		<tr>
 			<%
-				Internationalization output = new Internationalization();
+				String output;
 				try {
 					for (int i = 1; i <= columns; i++) {
 						if (i == 1 || i == 4 || i == 6 || i == 7) {
 							continue;
 						}
 						if (i == 3) {
-							output.setString("my.short_description");
-							out.write("<th> " + output + " </th>");
+							out.write("<th> short description </th>");
 						} else {
 							out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
 						}

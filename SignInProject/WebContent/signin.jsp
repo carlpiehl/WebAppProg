@@ -11,18 +11,18 @@
 <body>
 	<form action="loginServlet" method="post">
 		<fieldset style="width: 300px">
-			<legend><%out.print(bundle.getString("my.login_to_app"));%></legend>
+			<legend><fmt:message key="my.login_to_app"/></legend>
 			<table>
 				<tr>
-					<td><%out.print(bundle.getString("my.user_id"));%></td>
+					<td><fmt:message key="my.user_id"/></td>
 					<td><input type="text" name="username" required="required" /></td>
 				</tr>
 				<tr>
-					<td><%out.print(bundle.getString("my.password"));%></td>
+					<td><fmt:message key="my.password"/></td>
 					<td><input type="password" name="userpass" required="required" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value=<%out.print(bundle.getString("my.login"));%> /></td>
+					<td><input type="submit" value=<fmt:message key="my.login"/> /></td>
 				</tr>
 			</table>
 		</fieldset>

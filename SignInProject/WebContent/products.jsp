@@ -2,7 +2,7 @@
 <html>
 <head>
 	<%@ include file="header.jsp"%>
-	<title><%out.println(bundle.getString("my.products")); %></title>
+	<title><fmt:message key="my.products"/></title>
 </head>
 <body>
 	<h1>Product List</h1>

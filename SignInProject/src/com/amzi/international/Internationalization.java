@@ -16,6 +16,19 @@ public class Internationalization {
 
 	public Internationalization() {
 		String string;
+		ResourceBundle bundle;
+	}
+	
+	public ResourceBundle getBundle() {
+		return bundle;
+	}
+
+	public void setBundle(String locale) {
+		if (locale == "fr_CA") {
+			this.bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle_fr_CA");
+		} else {
+			this.bundle = ResourceBundle.getBundle("com.amzi.international.TestBundle");
+		}
 	}
 	
 	public String getString() {
