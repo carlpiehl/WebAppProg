@@ -2,10 +2,10 @@
 <html>
 <head>
 	<%@ include file="header.jsp"%>
-	<title><%out.println(bundle.getString("my.products")); %></title>
+	<title><fmt:message key="my.products"/></title>
 </head>
 <body>
-	<h1>Product List</h1>
+	<h1><fmt:message key="my.product_list"/></h1>
 	
 <%
     Connection connection = null;
