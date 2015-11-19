@@ -2,7 +2,10 @@ package com.amzi.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.io.PrintWriter;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,16 +21,21 @@ public class addCartServlet extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		@SuppressWarnings("unchecked")
-		ArrayList<String> cart = (ArrayList<String>) session.getAttribute("cart");
-		//can create error message if session == null or whatever fail is
+	
+		//---------------------------------------------------------------------------------------------------
+		HashMap<String, AtomicInteger> cart = (HashMap<String, AtomicInteger>) session.getAttribute("cart");
 		
-		if(cart == null){
-			cart = new ArrayList<String>();
+		if(cart == null){//if cart2 is null, make a cart2 hashmap
+			cart = new HashMap<String, AtomicInteger>();
 		}
 		
-		cart.add(productID);
-		
+		if(cart.containsKey(productID)){
+			cart.get(productID).incrementAndGet();
+		}else {
+			cart.put(productID, new AtomicInteger(1));
+		}
 		session.setAttribute("cart", cart);
+		//------------------------------------------------------------------------------------------------------
 		
 		RequestDispatcher rd = request.getRequestDispatcher("fullProduct.jsp?productID="+productID);
 		out.print("Product has been added to cart");
