@@ -8,6 +8,6 @@
 <title><fmt:message key="my.admin_home"/></title>
 </head>
 <body>
-
+	BOOM
 </body>
 </html>
