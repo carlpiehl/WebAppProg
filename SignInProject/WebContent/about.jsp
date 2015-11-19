@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>About Us</title>
-<link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet" type="text/css"/>
 <%@ include file="header.jsp"%>
+<title><fmt:message key="my.about_us"/></title>
+<link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-	<h1><%out.print(bundle.getString("my.developers"));%>:</h1>
+	<h1><fmt:message key="my.developers"/>:</h1>
 	<ul>
 		<li>Carl Piehl</li>
 		<li>Omid Vaziri</li>
