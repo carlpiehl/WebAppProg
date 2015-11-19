@@ -2,11 +2,11 @@
 	pageEncoding="ISO-8859-1"%>
 <html>
 <head>
+<%@ include file="header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sign Up</title>
+<title><fmt:message key="my.sign_up" /></title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
 	<form action="signupServlet" method="post">
 		<fieldset style="width: 300px">
 			<legend><fmt:message key="my.sign_up"/></legend>

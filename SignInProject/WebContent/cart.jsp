@@ -86,7 +86,8 @@
 	<div data-embed_type="product" data-shop="moneystore-2.myshopify.com"
 		data-product_name="Shit" data-product_handle="shit"
 		data-has_image="false" data-display_size="compact"
-		data-redirect_to="checkout" data-buy_button_text=<fmt:message key="my.buy_now"/>
+		data-redirect_to="checkout"
+		data-buy_button_text=<fmt:message key="my.buy_now"/>
 		data-buy_button_out_of_stock_text="Out of Stock"
 		data-buy_button_product_unavailable_text="Unavailable"
 		data-button_background_color="7db461" data-button_text_color="ffffff"

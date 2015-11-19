@@ -18,7 +18,6 @@
 <html lang="${language}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title><fmt:message key="my.store_name"/></title>
 <link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
