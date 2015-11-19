@@ -5,12 +5,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<%@ include file="header.jsp"%>
 	<%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle" %>
-	<title><%out.println(bundle.getString("my.welcome")); %></title>
+	<title><fmt:message key="my.welcome"/></title>
 </head>
 <body>
-	<h3><%out.print(bundle.getString("my.welcome"));%></h3>
-	<h3><%out.print(bundle.getString("my.today's_deals"));%>!!!</h3>
-	<p><%out.print(bundle.getString("my.list_of_deals"));%></p>
+	
+	<h3><fmt:message key="my.welcome"/></h3>
+	<h3><fmt:message key="my.today's_deals"/>!!!</h3>
+	<p><fmt:message key="my.list_of_deals"/></p>
 	<ul>
 		<li>GTX Titan X - $1000</li>
 		<li>GNU/Linux - free as in freedom</li>
@@ -20,5 +21,6 @@
 		<li>5 year old Gentoo thinkpad - $50</li>
 	</ul>
 	<%@ include file="footer.jsp"%>
+	
 </body>
 </html>

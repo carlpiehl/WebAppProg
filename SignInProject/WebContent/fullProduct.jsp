@@ -5,9 +5,9 @@
 <%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Product Page</title>
 		<%@ include file="header.jsp"%>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title><fmt:message key="my.product_page"/></title>
 	</head>
 <body>
   <%

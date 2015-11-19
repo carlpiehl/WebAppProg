@@ -7,9 +7,9 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<h3><%out.print(bundle.getString("my.login_successful")); %>!!!</h3>
+	<h3><fmt:message key="my.login_successful"/>!!!</h3>
 	<h4>
-		<%out.print(bundle.getString("my.hello")); %>,
+		<fmt:message key="my.hello"/>,
 		<%=session.getAttribute("name")%></h4>
 	<%@ include file="footer.jsp"%>
 </body>

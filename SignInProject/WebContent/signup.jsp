@@ -2,31 +2,31 @@
 	pageEncoding="ISO-8859-1"%>
 <html>
 <head>
+<%@ include file="header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sign Up</title>
+<title><fmt:message key="my.sign_up" /></title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
 	<form action="signupServlet" method="post">
 		<fieldset style="width: 300px">
-			<legend><%out.print(bundle.getString("my.sign_up"));%></legend>
+			<legend><fmt:message key="my.sign_up"/></legend>
 
 			<table>
 				<tr>
-					<td><%out.print(bundle.getString("my.username"));%>:</td>
+					<td><fmt:message key="my.username"/>:</td>
 					<td><input type="text" name="uname" required="required" /></td>
 				</tr>
 				<tr>
-					<td><%out.print(bundle.getString("my.email"));%>:</td>
+					<td><fmt:message key="my.email"/>:</td>
 					<td><input type="email" name="uemail" required="required" /></td>
 				</tr>
 				<tr>
-					<td><%out.print(bundle.getString("my.password"));%>:</td>
+					<td><fmt:message key="my.password"/>:</td>
 					<td><input type="password" name="upass" required="required" /></td>
 					<%-- add password confirmation--%>
 				</tr>
 				<tr>
-					<td><input type="submit" value=<%out.print(bundle.getString("my.sign_up_label"));%> /></td>
+					<td><input type="submit" value=<fmt:message key="my.sign_up_label"/> /></td>
 				</tr>
 			</table>
 		</fieldset>
