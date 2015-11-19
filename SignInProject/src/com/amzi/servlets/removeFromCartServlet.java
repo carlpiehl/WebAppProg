@@ -11,7 +11,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
-public class addCartServlet extends HttpServlet{
+public class removeFromCartServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -24,21 +24,24 @@ public class addCartServlet extends HttpServlet{
 	
 		//---------------------------------------------------------------------------------------------------
 		HashMap<String, AtomicInteger> cart = (HashMap<String, AtomicInteger>) session.getAttribute("cart");
-		
+		//---------------------------------------------------------------------------------------------------
+
+
+		//---------------------------------------------------------------------------------------------------
 		if(cart == null){//if cart2 is null, make a cart2 hashmap
 			cart = new HashMap<String, AtomicInteger>();
 		}
 		
 		if(cart.containsKey(productID)){
-			cart.get(productID).incrementAndGet();
+			cart.remove(productID);
 		}else {
-			cart.put(productID, new AtomicInteger(1));
+			//cart2.put(productID, new AtomicInteger(1));
 		}
 		session.setAttribute("cart", cart);
 		//------------------------------------------------------------------------------------------------------
 		
-		RequestDispatcher rd = request.getRequestDispatcher("fullProduct.jsp?productID="+productID);
-		out.print("Product has been added to cart");
+		RequestDispatcher rd = request.getRequestDispatcher("cart.jsp?productID="+productID);
+		//out.print("Product has been added to cart");
 		rd.include(request, response);
 		response.sendRedirect("cart.jsp");
 	}

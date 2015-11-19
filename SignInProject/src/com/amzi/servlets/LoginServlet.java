@@ -26,9 +26,11 @@ public class LoginServlet extends HttpServlet{
         String p=request.getParameter("userpass");   
         
         HttpSession session = request.getSession(true);  
-        
-        if(LoginDao.validate(n, p)){
+        int [] userStatus = LoginDao.validate(n, p);
+        if(userStatus[0] == 1){
+        //if(LoginDao.validate(n, p)){
         	session.setAttribute("name", n);
+        	session.setAttribute("userStatus", userStatus);
             RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");
             rd.forward(request,response);
         }    

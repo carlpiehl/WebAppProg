@@ -10,7 +10,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.amzi.dao.AccountDAO;
+
+import com.amzi.dao.AddItemToDB;
+
 import com.amzi.dao.LoginDao;
 
 //Servlet packages
@@ -23,10 +25,10 @@ import javax.servlet.http.HttpSession;
 
 
 
-public class SignupServlet extends HttpServlet{
+public class AddItemToDBServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
-	AccountDAO accountDao = new AccountDAO();
+	AddItemToDB addItem = new AddItemToDB();
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -34,20 +36,19 @@ public class SignupServlet extends HttpServlet{
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		String name=request.getParameter("uname");
-		String email=request.getParameter("uemail");
-		String pass=request.getParameter("upass");
+		String prodName = request.getParameter("prodName");
+		String prodDescShort = request.getParameter("prodDescShort");
+		String prodDesLong = request.getParameter("prodDescLong");
+		String prodPrice = request.getParameter("prodPrice");
+		String inStock = request.getParameter("inStock");
+		String rating = request.getParameter("rating");
 		
 		HttpSession session = request.getSession(false);  
-    	if(session!=null){
-    		session.setAttribute("name", name);
-    	}
+    	
 		//TODO: Add error checking
-    	accountDao.getConnection();
+    	addItem.getConnection();
     	//TODO: Add validation, write according message below
-		accountDao.signUp(name, email, pass);
-		int [] userStatus = LoginDao.validate(name, pass);
-		session.setAttribute("userStatus", userStatus);
+    	addItem.setUpProduct(prodName, prodDescShort, prodDesLong, prodPrice, inStock, rating);
 		
 		out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
 		RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");

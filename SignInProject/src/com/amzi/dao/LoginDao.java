@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginDao {
-	public static boolean validate(String name, String pass) {
+public class LoginDao {//boolean
+	public static int[] validate(String name, String pass) {
 		boolean status = false;
 		Connection conn = null;
 		PreparedStatement pst = null;
@@ -18,6 +18,7 @@ public class LoginDao {
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
 		String password = "root";
+		int [] userStatus = new int [2];
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url + dbName, userName, password);
@@ -28,6 +29,9 @@ public class LoginDao {
 
 			rs = pst.executeQuery();
 			status = rs.next();
+			userStatus[1] = rs.getInt("pk_user");
+			userStatus[2] = rs.getInt("is_admin");
+
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -54,6 +58,12 @@ public class LoginDao {
 				}
 			}
 		}
-		return status;
+		if (status){
+			userStatus[0] = 1;
+		}else{
+			userStatus[0] = 0;
+		}
+		return userStatus;
+		//return status;
 	}
 }

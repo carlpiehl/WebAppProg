@@ -33,6 +33,36 @@
     <url-pattern>/addCartServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>subCart</servlet-name>
+    <servlet-class>com.amzi.servlets.subCartServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>subCart</servlet-name>
+    <url-pattern>/subCartServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>removeCart</servlet-name>
+    <servlet-class>com.amzi.servlets.removeFromCartServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>removeCart</servlet-name>
+    <url-pattern>/removeFromCartServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddItem</servlet-name>
+    <servlet-class>com.amzi.servlets.AddItemServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>AddItem</servlet-name>
+    <url-pattern>/AddItemServlet</url-pattern>
+  </servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
