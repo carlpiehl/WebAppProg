@@ -13,28 +13,28 @@
 
 			<table>
 				<tr>
-					<td><%out.print("Product Name:");%>:</td>
+					<td>Product Name:</td>
 					<td><input type="text" name="prodName" required="required" /></td>
 				</tr>
 				<tr>
-					<td><%out.print("Product Short Description");%>:</td>
+					<td>Product Short Description:</td>
 					<td><input type="text" name="prodDescShort" required="required" /></td>
 				</tr>
 				<tr>
-					<td><%out.print("Product Long Description");%>:</td>
+					<td>Product Long Description:</td>
 					<td><input type="text" name="prodDesLong" required="required" /></td>
 					<%-- add password confirmation--%>
 				</tr>
 				<tr>
-					<td><%out.print("Product Price (10.2 decimal value only)");%>:</td>
+					<td>Product Price (10.2 decimal value only):</td>
 					<td><input type="text" name="prodPrice" required="required" /></td>
 				</tr>
 				<tr>
-					<td><%out.print("Quantity that will be available for purchase (int value only)");%>:</td>
+					<td>Quantity that will be available for purchase (int value only):</td>
 					<td><input type="text" name="inStock" required="required" /></td>
 				</tr>
 				<tr>
-					<td><%out.print("Rating ( 2.1 decimal value only)");%>:</td>
+					<td>Rating ( 2.1 decimal value only):</td>
 					<td><input type="text" name="rating" required="required" /></td>
 				</tr>
 				<tr>

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h3><fmt:message key="my.hello_admin"/></h3>
-	<a href="../AddItemToDB.jsp"> Add a product to database.</a>
+	<a href="../AddItemToDB.jsp"><fmt:message key="my.add_product_to_database"/></a>
 	<br/>
  	<br/>
     <a href="../delProductsFromDB.jsp"> Remove products from database.</a>

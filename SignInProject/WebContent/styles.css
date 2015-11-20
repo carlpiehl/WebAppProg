@@ -2,20 +2,26 @@
 
 @font-face {
     font-family: basicFont;
-    src: url(Basic-Regular.otf);
+    src: url(images/Basic-Regular.otf);
+}
+
+@font-face {
+    font-family: sofiaPro;
+    src: url(images/SofiaPro.woff);
 }
 
 body {
 	font-family: 'basicFont';
 	/*background-color: #fdf6e3;*/
 	padding: 30px;
-	background-image: url(backgroundp.png);
+	background-image: url(images/backgroundp.png);
 	background-repeat: repeat;
 	color: #ffffff;
+	-webkit-font-smoothing: antialiased;
 }
 
 div#header {
-	background-image: url(headerp.png);
+	background-image: url(images/headerp.png);
 	background-repeat: repeat;
 	/*background: #293134;*/
 	font-size: 28px;
@@ -25,15 +31,15 @@ div#header {
 	top: 0;
 	margin-bottom: 26px;
 	text-align: center;
-        font-family: 'Lato';
+    font-family: 'sofiaPro';
 }
 
 fieldset {
 	border: none;
-	}
+}
 
 #footer{
-	background-image: url(headerp.png);
+	background-image: url(images/headerp.png);
 	background-repeat: repeat;
 	font-size: 20px;
 	line-height: 60px;
@@ -88,10 +94,14 @@ h1 {
 	box-shadow: 0px 0px 2px #424242;
 	font-family: 'arial';
 	/*background-color: #dd4a38;*/
-	background-image: url(contentp.png);
+	background-image: url(images/contentp.png);
 	background-repeat: repeat;	padding: 40px;
 	color: #ffffff;
 	font-size: 18px;
+}
+
+#content a {
+	color: #ffffff;
 }
 
 #cartButton {

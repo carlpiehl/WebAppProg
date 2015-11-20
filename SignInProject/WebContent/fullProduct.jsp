@@ -34,12 +34,11 @@
   
   pst = connection.prepareStatement("SELECT * FROM products WHERE pk_product = ?");
   pst.setString(1, productID);
-  
-  result = pst.executeQuery();
-  rsmd = result.getMetaData();
-  columns = rsmd.getColumnCount();    
   try {
-      while(result.next()){
+	  result = pst.executeQuery();
+	  rsmd = result.getMetaData();
+	  columns = rsmd.getColumnCount();
+	  while(result.next()){
       	out.write("<h1>");
       	out.write(result.getString("name"));
       	out.write("</h1>");
@@ -49,10 +48,10 @@
       	int stars = (int) result.getFloat("rating");
       	int i;
       	for (i = 0; i < stars ; i++){ 
-      		out.write("<img src=\"star.png\"/>");
+      		out.write("<img src=\"images/star.png\"/>");
       	}
       	for (; i < 5; i++){
-      		out.write("<img src=\"antistar.png\"/>");
+      		out.write("<img src=\"images/antistar.png\"/>");
       	}
       	out.write("<br/>Price: $"+ result.getString("price") + " and free shipping over $50");
       	out.write("<br/><p>");
@@ -84,6 +83,7 @@
       		<input type="hidden" name="productID" value="<%=productID%>">
       		<input id="cartButton" type="submit" value="add to cart" >
     	</form>
+    </div>
     </div>
     
   <%@ include file="footer.jsp"%>
