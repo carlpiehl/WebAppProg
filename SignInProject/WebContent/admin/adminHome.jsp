@@ -9,5 +9,12 @@
 </head>
 <body>
 	<h3><fmt:message key="my.hello_admin"/></h3>
+	<a href="../AddItemToDB.jsp"> Add a product to database.</a>
+	<br/>
+ 	<br/>
+    <a href="../delProductsFromDB.jsp"> Remove products from database.</a>
+	
+		<%@ include file="../footer.jsp"%>
+	
 </body>
 </html>
