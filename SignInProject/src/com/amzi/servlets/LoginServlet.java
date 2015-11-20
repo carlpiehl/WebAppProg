@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet{
   
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();    
-          
+        
         String n=request.getParameter("username");    
         String p=request.getParameter("userpass");   
         
@@ -31,8 +31,16 @@ public class LoginServlet extends HttpServlet{
         //if(LoginDao.validate(n, p)){
         	session.setAttribute("name", n);
         	session.setAttribute("userStatus", userStatus);
-            RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");
-            rd.forward(request,response);
+        	
+        	if (userStatus[2] == 0){//if not admin go to welcome page
+        			RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");
+        			rd.forward(request,response);
+        	
+        	}else {//if admin go to admin Homepage
+              RequestDispatcher rd=request.getRequestDispatcher("/admin/adminHome.jsp");
+              rd.forward(request,response);
+        	}
+          
         }    
         else{    
             out.print("<p style=\"color:red\">Sorry username or password error</p>");    

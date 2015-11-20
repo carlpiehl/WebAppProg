@@ -18,7 +18,7 @@ public class LoginDao {//boolean
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
 		String password = "root";
-		int [] userStatus = new int [2];
+		int [] userStatus = new int [3];
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url + dbName, userName, password);

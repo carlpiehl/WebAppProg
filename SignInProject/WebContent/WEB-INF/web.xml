@@ -54,13 +54,23 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>AddItem</servlet-name>
-    <servlet-class>com.amzi.servlets.AddItemServlet</servlet-class>
+    <servlet-name>AddItemToDB</servlet-name>
+    <servlet-class>com.amzi.servlets.AddItemToDBServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>AddItem</servlet-name>
-    <url-pattern>/AddItemServlet</url-pattern>
+    <servlet-name>AddItemToDB</servlet-name>
+    <url-pattern>/AddItemToDBServlet</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+    <servlet-name>DelitemFromDB</servlet-name>
+    <servlet-class>com.amzi.servlets.DelitemFromDBServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>DelitemFromDB</servlet-name>
+    <url-pattern>/DelitemFromDBServlet</url-pattern>
   </servlet-mapping>
 
 	<welcome-file-list>

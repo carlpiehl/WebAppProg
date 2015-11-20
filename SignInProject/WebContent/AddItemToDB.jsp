@@ -7,7 +7,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<form action="AddItemServlet" method="post">
+	<form action="AddItemToDBServlet" method="post">
 		<fieldset style="width: 400px">
 			<legend><%out.print("Enter new Item");%></legend>
 

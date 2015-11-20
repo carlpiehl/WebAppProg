@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.amzi.dao.AddItemToDB;
+import com.amzi.dao.DelitemFromDB;
 
 import com.amzi.dao.LoginDao;
 
@@ -25,10 +25,10 @@ import javax.servlet.http.HttpSession;
 
 
 
-public class AddItemToDBServlet extends HttpServlet{
+public class DelitemFromDBServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
-	AddItemToDB addItem = new AddItemToDB();
+	DelitemFromDB delItem = new DelitemFromDB();
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -36,19 +36,15 @@ public class AddItemToDBServlet extends HttpServlet{
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		String prodName = request.getParameter("prodName");
-		String prodDescShort = request.getParameter("prodDescShort");
-		String prodDesLong = request.getParameter("prodDescLong");
-		String prodPrice = request.getParameter("prodPrice");
-		String inStock = request.getParameter("inStock");
-		String rating = request.getParameter("rating");
+		String productID = request.getParameter("productID");
 		
 		HttpSession session = request.getSession(false);  
     	
 		//TODO: Add error checking
-    	addItem.getConnection();
+		
+		delItem.getConnection();
     	//TODO: Add validation, write according message below
-    	addItem.setUpProduct(prodName, prodDescShort, prodDesLong, prodPrice, inStock, rating);
+		delItem.delProduct(productID);
 		
 		out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
 		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminHome.jsp");
