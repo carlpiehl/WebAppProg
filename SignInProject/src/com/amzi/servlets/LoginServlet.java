@@ -1,3 +1,31 @@
+/*
+   Class: LoginServlet
+   A class that that is called by SignIn.jsp in order to call LoginDao.java,
+   determine whether a "username" and its corresponding "password" 
+   are stored within the "store_db" database. It then stores the user's
+   relevant information into the session.
+   
+   Functions:
+   doPost()   			 - takes HttpServletRequest "request", HttpServletResponse "response",
+      							 - and grabs Strings n("username") and p("password") from "request".
+   									 
+   									 - then passes these variables to LoginDao.java 
+   									 using the function call  "validate".
+   									 - if the username exist and has the corresponding password
+   									 		- the user's name, userId, and adminflag are stored in the session
+   									 		
+   									 		- if the username belongs does not belong to an admin
+   									 			- then directs the application to run the welcome.jsp
+   									 		
+   									 		- else the username belongs to an admin
+   									 		  - then directs the application to run the adminHome.jsp
+   									 
+   									 - else there is no given "n" and corresponding "p" found in the "store_db" database
+   									 		- then directs application to run the index.jsp
+   									  	 
+   NOTE: 						 - Used http://hmkcode.com/java-mysql/ tutorial for majority of this class
+*/
+
 package com.amzi.servlets;  
   
 import java.io.IOException;  
