@@ -1,4 +1,17 @@
-//Used http://hmkcode.com/java-mysql/ tutorial for majority of this
+/*
+   Class: AddItemToDB
+   A class that that is called by AddItemToDBServlet.java in order to connect to the "store_db" 
+   database and store a new product.
+   
+   Functions:
+   getConnection()   - establishes a connection to the "store_db" database using "root" credentials,
+   									 stores it in "connection" and returns it.
+   setUpProduct	()   - takes Strings "prodName", "prodDescShort", "prodDescLong", "prodPrice", "inStock", "rating"
+                     and uses them to add a new product to "store_db".
+ 	 closeConnection() - closes the connection to "store_db"
+ 	 
+   NOTE: 						 - Used http://hmkcode.com/java-mysql/ tutorial for majority of this class
+*/
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -10,7 +23,16 @@ import java.sql.SQLException;
 public class AddItemToDB {
 	
 	Connection connection = null;
-	
+
+	/*
+  Function Name: getConnection
+  Parameters: String url    - this is used to connect to the local mySQL server
+							String dbName - this is used to access the correct database
+							String driver - this is used to run the correct driver
+							String uname  - this is used to store the username credential for accessing the database
+							String pass   - this is used to store the password credential for accessing the database
+  Purpose: 		To establish a connection to the database
+  */
 	public Connection getConnection(){
 		String url = "jdbc:mysql://localhost:3306/";
 		String dbName = "store_db";
@@ -28,18 +50,18 @@ public class AddItemToDB {
 		return connection;
 	}
 	
-	//probably make this boolean or something to indicate success or failure, for now no email check
-	public void setUpProduct(String prodName, String prodDescShort, String prodDescLong, String prodPrice, String inStock, String rating ){
-		/*"A ResultSet object maintains a cursor pointing to its current row of data.
-		 * Initially the cursor is positioned before the first row.
-		 * The next method moves the cursor to the next row, and because it returns false 
-		 * when there are no more rows in the ResultSet object, it can be used in a while loop
-		 * to iterate through the result set.
-		 */
-		//TODO: Ensure email (primary key) does not already exist (use ResultSet)
-		//TODO: If email exists, set return value and error checking in SignupServlet
-		//TODO: Consider adding unique ID, might not be necessary
-		//TODO: 
+	/*
+  Function Name: setUpProduct
+  Parameters: String prodName 		 - this is the name of the new product being added.
+  						String prodDescShort - this is the short description of the new product being added. 
+  						String prodDescLong  - this is the long description of the new product being added.
+  						String prodPrice     - this is the price of the new product being added.
+  						String inStock       - this is the quantity of this product that is available for purchase
+  						String rating        - this is the rating of the product(10.2 decimal value is translated into stars)					
+  Purpose: 		To add a new product to the "products" table within "store_db"
+  */
+	public void setUpProduct(String prodName, String prodDescShort, String prodDescLong, String prodPrice, String inStock, String rating){
+		
 		try{
 			PreparedStatement pst = 
 				connection.prepareStatement("INSERT INTO products (name, descriptionShort, descriptionLong, price, quantity, rating)"
@@ -57,8 +79,12 @@ public class AddItemToDB {
 		}
 	}
 	
-	
-	
+	/*
+  Function Name: closeConnection
+  Parameters: none
+  Purpose: 		To close the connection to the database 
+  						that was established in getConnection
+  */	
 	public void closeConnection(){
 		if(connection != null){
 			try{
