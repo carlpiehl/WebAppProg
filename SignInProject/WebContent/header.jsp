@@ -36,6 +36,14 @@
 		| <a href=/SignInProject/signin.jsp><fmt:message key="my.already_a_member"/></a>
 		| <a href="/SignInProject/products.jsp"><fmt:message key="my.products"/></a>
 		| <a href="/SignInProject/cart.jsp"><fmt:message key="my.cart"/></a>
+		<br/>
+		<input id="searchText" type="text" name="search" />
+		<input id="search" type="submit" value="search" />
+		<script>
+			document.getElementById("search").onclick = function () {
+				location.href = "http://localhost:8081/SignInProject/search.jsp?productName=" + document.getElementById("searchText").value;
+			};
+		</script>
 	</div>
 	<div id="content">
 </body>

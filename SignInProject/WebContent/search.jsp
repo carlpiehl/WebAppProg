@@ -2,10 +2,10 @@
 <html>
 <head>
 	<%@ include file="header.jsp"%>
-	<title><fmt:message key="my.products"/></title>
+	<title><fmt:message key="my.search"/></title>
 </head>
 <body>
-	<h1><fmt:message key="my.product_list"/></h1>
+	<h1><fmt:message key="my.search"/></h1>
 	
 <%
     Connection connection = null;
@@ -19,7 +19,7 @@
     Statement stmt = null;
     ResultSetMetaData rsmd = null;
     int columns = 0;
-   
+    PreparedStatement pst = null;
     try{
         Class.forName(driver).newInstance();
         connection = DriverManager.getConnection(url + dbName, uname, pass);
@@ -27,10 +27,11 @@
         e.printStackTrace();
       }
    
-    stmt = connection.createStatement();
-    result = stmt.executeQuery("SELECT * FROM products");
-    rsmd = result.getMetaData();
-    columns = rsmd.getColumnCount(); 
+    String productName = request.getParameter("productName");
+  	stmt = connection.createStatement();
+    result = stmt.executeQuery("SELECT * FROM products WHERE name LIKE '%" + productName + "%'");
+  	rsmd = result.getMetaData();
+  	columns = rsmd.getColumnCount(); 
  %>
  <table width="90%" border="1">
    <tr>
