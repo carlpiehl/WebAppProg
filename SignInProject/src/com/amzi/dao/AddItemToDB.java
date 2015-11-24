@@ -42,7 +42,7 @@ public class AddItemToDB {
 		//TODO: 
 		try{
 			PreparedStatement pst = 
-				connection.prepareStatement("INSERT INTO products (name, descriptionShort, descriptionLong, price, quantity, rating)"
+				connection.prepareStatement("INSERT INTO products (name, descriptionShort, descriptionLong, price, quantity, rating, variant_id)"
 						+ "VALUES (?, ?, ?, ?, ?, ?, ?)");
 				pst.setString(1, prodName);
 				pst.setString(2, prodDescShort);
