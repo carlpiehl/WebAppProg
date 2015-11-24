@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet{
         			rd.forward(request,response);
         	
         	}else {//if admin go to admin Homepage
-              RequestDispatcher rd=request.getRequestDispatcher("/admin/adminHome.jsp");
+              RequestDispatcher rd=request.getRequestDispatcher("adminHome.jsp");
               rd.forward(request,response);
         	}
           

@@ -47,7 +47,7 @@ public class DelitemFromDBServlet extends HttpServlet{
 		delItem.delProduct(productID);
 		
 		out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminHome.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
 		rd.include(request, response);
 		
 		out.close();
