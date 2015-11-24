@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `store_db`.`products` (
   `price` DECIMAL(7,2) NULL,
   `quantity` INT NULL,
   `rating` DECIMAL(2,1) NULL,
+  `variant_id` VARCHAR(45) NULL,
   PRIMARY KEY (`pk_product`))
 ENGINE = InnoDB;
 
