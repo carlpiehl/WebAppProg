@@ -29,7 +29,7 @@ public class AddItemToDB {
 	}
 	
 	//probably make this boolean or something to indicate success or failure, for now no email check
-	public void setUpProduct(String prodName, String prodDescShort, String prodDescLong, String prodPrice, String inStock, String rating ){
+	public void setUpProduct(String prodName, String prodDescShort, String prodDescLong, String prodPrice, String inStock, String rating, String variantId ){
 		/*"A ResultSet object maintains a cursor pointing to its current row of data.
 		 * Initially the cursor is positioned before the first row.
 		 * The next method moves the cursor to the next row, and because it returns false 
@@ -43,13 +43,14 @@ public class AddItemToDB {
 		try{
 			PreparedStatement pst = 
 				connection.prepareStatement("INSERT INTO products (name, descriptionShort, descriptionLong, price, quantity, rating)"
-						+ "VALUES (?, ?, ?, ?, ?, ?)");
+						+ "VALUES (?, ?, ?, ?, ?, ?, ?)");
 				pst.setString(1, prodName);
 				pst.setString(2, prodDescShort);
 				pst.setString(3, prodDescLong);
 				pst.setString(4, prodPrice);
 				pst.setString(5, inStock);
 				pst.setString(6, rating);
+				pst.setString(7,variantId);
 				pst.execute();
 			//can assign rs.next() to boolean for checking, with email query
 		}catch(SQLException e){

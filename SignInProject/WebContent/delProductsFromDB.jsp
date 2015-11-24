@@ -93,5 +93,4 @@
 	</table>
 	<%@ include file="footer.jsp"%>
 	</body>
->>>>>>> refs/heads/cart2
 </html>

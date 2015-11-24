@@ -38,6 +38,10 @@
 					<td><input type="text" name="rating" required="required" /></td>
 				</tr>
 				<tr>
+					<td>Variant ID ( VarChar 45):</td>
+					<td><input type="text" name="variantId" required="required" /></td>
+				</tr>
+				<tr>
 					<td><input type="submit" value=<%out.print("submit");%> /></td>
 				</tr>
 			</table>

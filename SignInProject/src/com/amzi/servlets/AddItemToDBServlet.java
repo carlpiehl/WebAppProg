@@ -42,13 +42,15 @@ public class AddItemToDBServlet extends HttpServlet{
 		String prodPrice = request.getParameter("prodPrice");
 		String inStock = request.getParameter("inStock");
 		String rating = request.getParameter("rating");
+		String variantId = request.getParameter("variantId");
+
 		
 		HttpSession session = request.getSession(false);  
     	
 		//TODO: Add error checking
     	addItem.getConnection();
     	//TODO: Add validation, write according message below
-    	addItem.setUpProduct(prodName, prodDescShort, prodDesLong, prodPrice, inStock, rating);
+    	addItem.setUpProduct(prodName, prodDescShort, prodDesLong, prodPrice, inStock, rating, variantId);
 		
 		out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
 		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminHome.jsp");
