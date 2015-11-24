@@ -34,13 +34,16 @@
 		Class.forName(driver).newInstance();
 		connection = DriverManager.getConnection(url + dbName, uname, pass);
 	} catch (Exception e) {
-		e.printStackTrace();
+		//e.printStackTrace();
 	}
-
+	try {
 	stmt = connection.createStatement();
 	result = stmt.executeQuery("SELECT * FROM products");
 	rsmd = result.getMetaData();
 	columns = rsmd.getColumnCount();
+	} catch(Exception e) {
+		
+	}
 %>
 <body>
 	<h1>
@@ -67,7 +70,8 @@
 			%>
 		</tr>
 		<%
-			for (String product : cart.keySet()) {
+		try{	
+		for (String product : cart.keySet()) {
 					int productID = Integer.parseInt(product);
 					pst = connection.prepareStatement("SELECT * FROM products WHERE pk_product = ?");
 					pst.setString(1, product);
@@ -108,9 +112,11 @@
 					out.write("</tr>");
 
 				}
-
+		} catch (Exception e) {}
+			try{
 				out.write(urlID);
-
+			} catch (Exception e) {}
+			
 				result.close();
 				stmt.close();
 				connection.close();
@@ -119,7 +125,7 @@
 			}
 			//urlID = "https://kingd-myshopify-com.myshopify.com/cart/" + urlID;
 			urlID = "https://kingd-myshopify-com.myshopify.com/cart/3048807621:1,8802719557:1";
-			out.print(urlID);
+			//out.print(urlID);
 		%>
 	</table>
 
