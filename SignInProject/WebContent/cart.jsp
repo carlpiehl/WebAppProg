@@ -22,6 +22,7 @@
     Statement stmt = null;
     ResultSetMetaData rsmd = null;
     int columns = 0;
+    String urlID = null;
    
     HashMap<String, AtomicInteger> cart = (HashMap<String, AtomicInteger>) session.getAttribute("cart");
     
@@ -100,23 +101,24 @@
 			}
 		%>
 	</table>
-	<div data-embed_type="product" data-shop="moneystore-2.myshopify.com"
-		data-product_name="Shit" data-product_handle="shit"
+	<div data-embed_type="product"
+		data-shop="kingd-myshopify-com.myshopify.com"
+		data-product_name="Product" data-product_handle="product"
 		data-has_image="false" data-display_size="compact"
-		data-redirect_to="checkout"
-		data-buy_button_text=<fmt:message key="my.buy_now"/>
+		data-redirect_to="checkout" data-buy_button_text="Buy now"
 		data-buy_button_out_of_stock_text="Out of Stock"
 		data-buy_button_product_unavailable_text="Unavailable"
 		data-button_background_color="7db461" data-button_text_color="ffffff"
-		data-product_modal="false"></div>
+		data-product_modal="false" data-product_title_color="000000"
+		data-next_page_button_text="Next page"></div>
 	<script type="text/javascript">
 		document.getElementById('ShopifyEmbedScript')
 				|| document
 						.write('<script type="text/javascript" src="https://widgets.shopifyapps.com/assets/widgets/embed/client.js" id="ShopifyEmbedScript"><\/script>');
 	</script>
 	<noscript>
-		<a href="https://moneystore-2.myshopify.com/cart/7991754565:1"
-			target="_blank">Buy Shit</a>
+		<a href="https://kingd-myshopify-com.myshopify.com/cart/8802719557:1"
+			target="_blank">Buy Product</a>
 	</noscript>
 	<%@ include file="footer.jsp"%>
 </body>
