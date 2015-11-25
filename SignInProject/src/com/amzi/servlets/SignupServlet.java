@@ -1,3 +1,20 @@
+/*
+   Class: SignupServlet
+   A class that that is called by SignUp.jsp in order to call AccountDAO.java and LoginDao.java
+   in order to add a user to the "store_db" database, then get its corresponding userID.
+   It then stores the user's credentials into the session. 
+   
+   Functions:
+   doPost()   			 - takes HttpServletRequest "request", HttpServletResponse "response",
+      							   and grabs Strings "name"("uname"), "email"("uemail")and "pass"("upass") from "request".
+   									 
+   									 - then passes these variables to an instance of AccountDAO.java 
+   									   using the function call "signUp".
+   									 
+   									 - then passes "name" and "pass" to LoginDao.validate in order to get the userID.
+   									 - then direct the application to run welcome.jsp
+   NOTE: 						 - Used http://hmkcode.com/java-mysql/ tutorial for majority of this class
+*/
 package com.amzi.servlets;
 
 //IO packages

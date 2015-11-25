@@ -1,3 +1,19 @@
+/*
+   Class: AddItemToDBServlet
+   A class that that is called by AddItemToDB.jsp in order to call AddItemToDB.java and 
+   store a new product within the "store_db" database.
+   
+   Functions:
+   doPost()   			 - takes HttpServletRequest "request", HttpServletResponse "response",
+      							 - and grabs Strings "prodName", "prodDescShort", "prodDescLong", 
+   									 "prodPrice", "inStock", "rating" from "request".
+   									 
+   									 - then passes those variables to an instance of AddItemToDB.java 
+   									 using the function call  "setUpProduct".
+   									 - then directs the application to run the adminHome.jsp
+   									  	 
+   NOTE: 						 - Used http://hmkcode.com/java-mysql/ tutorial for majority of this class
+*/
 package com.amzi.servlets;
 
 //IO packages
