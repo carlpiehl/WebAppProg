@@ -1,3 +1,8 @@
+<%-- jsp: index
+     Description: This is the front page of the application. It is the first page that is displayed when
+          	      the user comes to this site for the first time. 
+	 Function:    This page be made to display the top 5 rated items for sale.
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>

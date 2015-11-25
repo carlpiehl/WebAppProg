@@ -1,3 +1,13 @@
+<%-- jsp: products.jsp
+     Description: This page is called by clicking on the products button within the top menu.
+     			  It is meant to show to the user all of the products that the money store sell
+     			  allow the user to browse the inventory. 
+	 Function:    This page shows a list of all products stored in the products table and the most relevant
+	 			  information related to sale of each (such as quantity in stock, price and a short description). 
+	 			  Each product name functions as a link that calls fullProduct.jsp with the productId, that is
+	 			  associated to each name.
+--%>
+
 <%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
 <html>
 <head>

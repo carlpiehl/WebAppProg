@@ -1,3 +1,13 @@
+<%-- jsp: fullProduct
+     Description: This is a page that is called by clicking on one of the products listed in product.jsp
+     			  or on the links presented when using search.jsp. It is used to show more information
+     			  about product that catches a user's interest, as well as allows the user to be able to 
+     			  add this product to cart.
+	 Function:    It takes productID that is handed to it by one of the above mentioned classes,
+	 			  then uses it to search for a product within the products table and displays
+	 			  all of the information regarding this product that is stored within the database.
+	 			  It also has an "add to cart" link that passes the productID to addCartServlet.java.
+--%>
 <%@page import="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>

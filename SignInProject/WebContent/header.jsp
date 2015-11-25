@@ -1,3 +1,11 @@
+ <%-- jsp: header
+     Description: This file is appended to the top of each pages.
+     			  It allows regular users to access all the tools that they need to browse
+     			  shop at our store.
+     Function: 	  It displays buttons allowing for easy access to index.jsp, cart.jsp, products.jsp
+     			  signin.jsp and signup.jsp. It also includes a search bar that can by used to 
+     			  call search.jsp and pass a search variable to it.
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

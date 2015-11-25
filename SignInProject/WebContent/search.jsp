@@ -1,3 +1,11 @@
+<%-- jsp: search
+     Description: This is a page that is called when using the search bar found in the top menu. 
+     			  The user can use this to quickly find an item that they are looking for 
+     			  without having to make their way through the entire database.
+	 Function:    This page searches the product names within the products table
+	 			  in order to find products that contain the sequence of letters,
+	 			  that are passed by the search bar within menu.jsp.
+--%>
 <%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
 <html>
 <head>

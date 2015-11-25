@@ -1,6 +1,6 @@
 <%-- jsp: About
-     Description: This is a page that can be called through the menu.
-	 Purpose: To display the names of the authors.
+     Description: This is a page that is called through the menu.
+	 Function: To display the names of the authors.
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

@@ -1,3 +1,11 @@
+<%-- jsp: cart
+     Description: This is a page that is accessed by clicking the "add to cart" button the fullProduct.jsp,
+     			  or by clicking the cart option from within the header menu. It takes the "cart" value
+     			  stored in session and uses it to display the items that the current user has added to cart
+     			  for potential purchase. It also allows users to purchase these items through shopify.
+	 Purpose:     It displays the list of current items that are stored in cart, allowing the user to 
+	 			  change the quantity of each item being purchased, and remove items from cart. 
+--%>
 <%@ page
 	import="java.sql.*, javax.sql.*, javax.naming.*, java.util.*, java.util.concurrent.atomic.AtomicInteger"
 	language="java" contentType="text/html; charset=ISO-8859-1"
