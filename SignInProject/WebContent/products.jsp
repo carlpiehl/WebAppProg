@@ -53,10 +53,28 @@
 			<%
 				try {
 					for (int i = 1; i <= columns; i++) {
-						if (i == 1 || i == 4 || i == 7) {
+/*						if (i == 1 || i == 4 || i == 7) {	// USEFULL FOR DEBUGGING : CARLs
 							continue;
+						} */
+						switch(i){
+							case 2:
+								%><th><fmt:message key="my.name" /></th><%
+								break;
+							case 3:
+								%><th><fmt:message key="my.short_description" /></th><%
+								break;
+							case 5:
+								%><th><fmt:message key="my.price" /></th><%
+								break;
+							case 6:
+								%><th><fmt:message key="my.quantity" /></th><%
+								break;
+							case 8:
+								%><th><fmt:message key="my.variant_id" /></th><%
+								break;
+							default:
+								continue;
 						}
-
 						//out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");  // USEFULL FOR DEBUGGING : CARL
 					}
 			%>

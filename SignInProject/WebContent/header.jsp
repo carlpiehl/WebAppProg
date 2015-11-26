@@ -31,7 +31,7 @@
 <body>
 	<div id="div_language">
 		<form>
-            <select id="language" name="language" onchange="submit()">
+            <select id="select_language" name="language" onchange="submit()">
             	<option value="" >Language</option>
                 <option value="en_US" ${language == 'en' ? 'selected' : ''}>English</option>
                 <option value="fr_CA" ${language == 'fr' ? 'selected' : ''}>Francais</option>
