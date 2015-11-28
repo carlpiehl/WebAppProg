@@ -8,19 +8,34 @@
 	 			  all of the information regarding this product that is stored within the database.
 	 			  It also has an "add to cart" link that passes the productID to addCartServlet.java.
 --%>
-<%@page import="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO"%>
+<%@page
+	import="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
+<%@page import="java.sql.*, javax.sql.*, javax.naming.*, java.text.NumberFormat"%>
 <html>
-	<head>
-		<%@ include file="header.jsp"%>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title><fmt:message key="my.product_page"/></title>
-	</head>
+<head>
+<%@ include file="header.jsp"%>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title><fmt:message key="my.product_page" /></title>
+</head>
 <body>
-  <%
+	<%
+	Locale french = new Locale("fr", "CA");
+	NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+	String reqLang = request.getParameter("language");
+	if (reqLang == null) {
+		reqLang = "en_US";
+	}
+	try {
+		if (reqLang.equals("fr_CA")) {
+			defaultFormat = NumberFormat.getCurrencyInstance(french);
+		}
+	} catch (Exception e) {
+		
+	}
+  
   Connection connection = null;
   String url = "jdbc:mysql://localhost:3306/";
   String dbName = "store_db";
@@ -63,7 +78,8 @@
       	for (; i < 5; i++){
       		out.write("<img src=\"images/antistar.png\"/>");
       	}
-      	out.write("<br/>Price: $"+ result.getString("price") + " and free shipping over $50");
+		double num = Double.parseDouble(result.getString("price"));
+      	out.write("<br/>Price: "+ defaultFormat.format(num) + " and free shipping over " + defaultFormat.format(50));
       	out.write("<br/><p>");
       	out.write(result.getString("descriptionLong"));
       	out.write("</p>");
@@ -88,14 +104,14 @@
       }catch(SQLException e){}
   }
     %>
-    <div id="addToCart">
-    	<form action="addCartServlet" method="post">
-      		<input type="hidden" name="productID" value="<%=productID%>">
-      		<input id="cartButton" type="submit" value="add to cart" >
-    	</form>
-    </div>
-    </div>
-    
-  <%@ include file="footer.jsp"%>
+	<div id="addToCart">
+		<form action="addCartServlet" method="post">
+			<input type="hidden" name="productID" value="<%=productID%>">
+			<input id="cartButton" type="submit" value="add to cart">
+		</form>
+	</div>
+	</div>
+
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

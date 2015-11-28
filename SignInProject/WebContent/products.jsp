@@ -82,6 +82,9 @@
 		<%
 			int productID = 0;
 				String reqLang = request.getParameter("language");
+				if (reqLang == null) {
+					reqLang = "en_US";
+				}
 				try {
 					if (reqLang.equals("fr_CA")) {
 						defaultFormat = NumberFormat.getCurrencyInstance(french);
@@ -97,7 +100,7 @@
 							continue;
 						}
 						if (i == 2) {
-							out.write("<td><center>" + "<a href='fullProduct.jsp?productID=" + productID + "'>"
+							out.write("<td><center>" + "<a href='fullProduct.jsp?productID=" + productID + "&language=" + request.getParameter("language") + "'>"
 									+ result.getString(i) + "</a></center>" + "</td>");
 						} else if (i == 4) {
 							double num = Double.parseDouble(result.getString(i + 1));
