@@ -82,8 +82,12 @@
 		<%
 			int productID = 0;
 				String reqLang = request.getParameter("language");
-				if (reqLang.equals("fr_CA")) {
-					defaultFormat = NumberFormat.getCurrencyInstance(french);
+				try {
+					if (reqLang.equals("fr_CA")) {
+						defaultFormat = NumberFormat.getCurrencyInstance(french);
+					}
+				} catch (Exception e) {
+					
 				}
 				while (result.next()) {
 					out.write("<tr>");
