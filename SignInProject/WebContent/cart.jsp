@@ -15,11 +15,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="header.jsp"%>
-<%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle"%>
+<%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle, java.text.NumberFormat"%>
 <title><fmt:message key="my.cart" /></title>
 </head>
 
-<%
+<%	
+	Locale french = new Locale("fr", "CA");
+	NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+	String reqLang = request.getParameter("language");
+	if (reqLang == null) {
+		reqLang = "en_US";
+	}
+	try {
+		if (reqLang.equals("fr_CA")) {
+			defaultFormat = NumberFormat.getCurrencyInstance(french);
+		}
+	} catch (Exception e) {
+		
+	}
+	double num;
+
 	Connection connection = null;
 	String url = "jdbc:mysql://localhost:3306/";
 	String dbName = "store_db";
@@ -62,20 +77,41 @@
 			<%
 				try {
 					for (int i = 1; i <= columns; i++) {
-						if (i == 1 || i == 4 || i == 6 || i == 7) {
+/*						if (i == 1 || i == 4 || i == 6 || i == 7) {
+							continue;
+						}*/
+						switch(i){
+						case 2:
+							%><th><fmt:message key="my.name" /></th><%
+							break;
+						case 3:
+							%><th><fmt:message key="my.short_description" /></th><%
+							break;
+						case 5:
+							%><th><fmt:message key="my.price" /></th><%
+							break;
+						case 6:
+							%><th><fmt:message key="my.variant_id" /></th><%
+							break;
+						case 8:
+							break;
+						default:
 							continue;
 						}
+						
+						/* 
 						if (i == 3) {
 							out.write("<th> short description </th>");
 						} else {
 							out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
-						}
+						} */
 					}
-					out.write("<th> quantity </th>");
-					out.write("<th> increase </th>");
-					out.write("<th> decrease </th>");
-					out.write("<th> Remove </th>");
 			%>
+					<th><fmt:message key="my.quantity" />
+					<th><fmt:message key="my.increase" />
+					<th><fmt:message key="my.decrease" />
+					<th><fmt:message key="my.remove" />
+			
 		</tr>
 		<%
 		try{	
@@ -88,7 +124,11 @@
 					result.next();
 					out.write("<tr>");
 					for (int j = 1; j <= columns; j++) {
-						if (j == 1 || j == 4 || j == 6 || j == 7) {
+						if (j == 5){
+							num = Double.parseDouble(result.getString("price"));
+							out.write("<td><center>" + defaultFormat.format(num) + "</center></td>");
+						}
+						if (j == 1 || j == 4 || j == 5 || j == 6 || j == 7) {
 							continue;
 						}
 						if (j == 8) {
@@ -112,10 +152,8 @@
 					out.write(
 							"<td><center> <form action='subCartServlet' method='post'> <input type='hidden' name= 'productID' value="
 									+ productID + "> <input id='text' type='submit' value='-' ></form></center></td>");
-					out.write(
-							"<td><center> <form action='removeFromCartServlet' method='post'> <input type='hidden' name= 'productID' value="
-									+ productID
-									+ "> <input id='text' type='submit' value='Remove' ></form></center></td>");
+					%><td><center> <form action='removeFromCartServlet' method='post'> <input type='hidden' name= 'productID' value=productID>
+								<input id='text' type='submit' value='<fmt:message key="my.remove"/>' ></form></center></td><%
 					//out.write("<td><center>" + session.getAttribute("name").toString() + "</center></td>");
 					out.write("</tr>");
 
@@ -141,7 +179,7 @@
 		data-shop="kingd-myshopify-com.myshopify.com"
 		data-product_name="Another Product" data-product_handle="another-product"
 		data-has_image="false" data-display_size="compact"
-		data-redirect_to="checkout" data-buy_button_text="Buy now"
+		data-redirect_to="checkout" data-buy_button_text="<fmt:message key="my.buy_now"/>"
 		data-buy_button_out_of_stock_text="Out of Stock"
 		data-buy_button_product_unavailable_text="Unavailable"
 		data-button_background_color="7db461" data-button_text_color="ffffff"
