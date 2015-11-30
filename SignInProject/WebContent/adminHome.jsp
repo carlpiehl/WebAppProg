@@ -15,11 +15,28 @@
 <title><fmt:message key="my.admin_home"/></title>
 </head>
 <body>
-	<h3><fmt:message key="my.hello_admin"/></h3>
-	<a href="AddItemToDB.jsp"><fmt:message key="my.add_product_to_database"/></a>
-	<br/>
- 	<br/>
-    <a href="delProductsFromDB.jsp"> Remove products from database.</a>
+	
+    <% int [] userStatus = (int []) session.getAttribute("userStatus");
+    try{
+    	if (userStatus[2] == 1){
+    		%>
+    		<h3><fmt:message key="my.hello_admin"/></h3>
+    		<a href="AddItemToDB.jsp"><fmt:message key="my.add_product_to_database"/></a>
+			<br/>
+ 			<br/>
+    		<a href="delProductsFromDB.jsp"><fmt:message key="my.remove_product_from_database"/></a>
+    		<%
+    	}else{
+    		%><h3><fmt:message key="my.you_are_not_admin"/></h3><%
+    	}
+    	
+    } catch(Exception e){
+    	%><h3><fmt:message key="my.you_are_not_admin"/></h3><%
+    }
+    %>
+    
+	
+	
 	
 		<%@ include file="footer.jsp"%>
 	

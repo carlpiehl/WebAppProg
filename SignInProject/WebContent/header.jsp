@@ -44,6 +44,7 @@
 		| <a href=/SignInProject/signin.jsp><fmt:message key="my.already_a_member"/></a>
 		| <a href="/SignInProject/products.jsp"><fmt:message key="my.products"/></a>
 		| <a href="/SignInProject/cart.jsp"><fmt:message key="my.cart"/></a>
+		| <a href="/SignInProject/adminHome.jsp"><fmt:message key="my.admin_home"/></a>
 		<br/>
 		<input id="searchText" type="text" name="search" />
 		<input id="search" type="submit" value="search" />
