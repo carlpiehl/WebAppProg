@@ -77,7 +77,14 @@
               }
       }catch(SQLException e){}
   }
-    %>
+  //Ratings
+  if (session.getAttribute("name") != null){
+	  session.setAttribute("productId", request.getParameter("productID"));
+  	  out.write("<form action=\"ratings\" method=\"post\"><select name=\"rating\"><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option></select><input type=\"submit\" value=\"Submit\">");
+  }
+  %>
+  
+</form>
     <div id="addToCart">
     	<form action="addCartServlet" method="post">
       		<input type="hidden" name="productID" value="<%=productID%>">

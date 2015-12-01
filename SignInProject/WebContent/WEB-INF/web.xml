@@ -1,79 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
-	version="2.5">
-	<servlet>
-		<servlet-name>login</servlet-name>
-		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>login</servlet-name>
-		<url-pattern>/loginServlet</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>sign up</servlet-name>
-		<servlet-class>com.amzi.servlets.SignupServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>sign up</servlet-name>
-		<url-pattern>/signupServlet</url-pattern>
-	</servlet-mapping>
-
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>login</servlet-name>
+    <servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>login</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>sign up</servlet-name>
+    <servlet-class>com.amzi.servlets.SignupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sign up</servlet-name>
+    <url-pattern>/signupServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>addCart</servlet-name>
     <servlet-class>com.amzi.servlets.addCartServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>addCart</servlet-name>
     <url-pattern>/addCartServlet</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <servlet-name>subCart</servlet-name>
     <servlet-class>com.amzi.servlets.subCartServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>subCart</servlet-name>
     <url-pattern>/subCartServlet</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <servlet-name>removeCart</servlet-name>
     <servlet-class>com.amzi.servlets.removeFromCartServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>removeCart</servlet-name>
     <url-pattern>/removeFromCartServlet</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <servlet-name>AddItemToDB</servlet-name>
     <servlet-class>com.amzi.servlets.AddItemToDBServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>AddItemToDB</servlet-name>
     <url-pattern>/AddItemToDBServlet</url-pattern>
   </servlet-mapping>
-
-<servlet>
+  <servlet>
     <servlet-name>DelitemFromDB</servlet-name>
     <servlet-class>com.amzi.servlets.DelitemFromDBServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>DelitemFromDB</servlet-name>
     <url-pattern>/DelitemFromDBServlet</url-pattern>
   </servlet-mapping>
-
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

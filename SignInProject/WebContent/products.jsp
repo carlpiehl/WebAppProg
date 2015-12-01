@@ -14,7 +14,6 @@
     String driver = "com.mysql.jdbc.Driver";
     String uname = "root";
     String pass = "root";
-     
     ResultSet result = null;
     Statement stmt = null;
     ResultSetMetaData rsmd = null;
@@ -84,7 +83,6 @@
          connection.close();
         } catch (SQLException e) {}
     }
-   
     %>
 	</table>
 	<%@ include file="footer.jsp"%>

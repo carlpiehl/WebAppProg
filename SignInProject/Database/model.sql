@@ -128,3 +128,43 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+UPDATE products
+SET variant_id=9197551877
+WHERE name='Doritos';
+ 
+UPDATE products
+SET variant_id=9197541829
+WHERE name='Five year old Gentoo thinkpad';
+ 
+UPDATE products
+SET variant_id=9197436229
+WHERE name='GTX Titan';
+ 
+UPDATE products
+SET variant_id=9197522821
+WHERE name='Micro$hill Botnet 10';
+ 
+UPDATE products
+SET variant_id=9197546501
+WHERE name='Mountin Dew';
+ 
+UPDATE products
+SET variant_id=8802719557
+WHERE name='Product';
+ 
+UPDATE products
+SET variant_id=9197531845
+WHERE name='Seldon mask';
+ 
+UPDATE products
+SET variant_id=9197392837
+WHERE name='Trench Coat';
+ 
+UPDATE products
+SET variant_id=9197560261
+WHERE name='ULTIMATE NEXT-GEN GAMING COMPUTER VERY GOOD';
+ 
+UPDATE products
+SET variant_id=9197506437
+WHERE name='Web Development In Assembly';
