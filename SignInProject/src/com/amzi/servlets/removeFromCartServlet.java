@@ -1,3 +1,20 @@
+/*
+   Class: removerFromCartServlet
+   A class that that is called by pressing one of the "remove" buttons within the "cart.jsp".
+   
+   It is used to grab a HashMap<String, AtomicInt> called "cart" from the session
+   (or create one if it doesn't already exist),
+   
+   to find a given product(using <String>) for the corresponding "productID",
+   
+	 to remove that entry, and store "cart" in the session.
+   
+   Functions:
+   doPost()					 - takes HttpServletRequest "request", HttpServletResponse "response"
+   									 and completes the above mentioned steps for the given "productID",
+   									 which is a parameter stored in "request".
+   									 - then directs the application to run "cart.jsp"
+*/
 package com.amzi.servlets;
 
 import java.io.IOException;

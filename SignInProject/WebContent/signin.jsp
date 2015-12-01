@@ -1,3 +1,11 @@
+<%-- jsp: signin
+     Description: This is a page that is called when pressing the "already a member"
+     			  button on the top menu. The user uses this to login into either a regular
+     			  user account or an admin account.
+	 Function:    This page displays a username textfield and password textfield. 
+	 			  It uses these  fields to grab the corresponding information 
+	 			  from the user, and passes it along to loginServlet.java.
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
