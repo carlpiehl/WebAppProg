@@ -39,8 +39,12 @@ public class ratings extends HttpServlet {
 		  PreparedStatement pst = null;
 		  ResultSetMetaData rsmd = null;
 		  int columns = 0;
-		  String productID = (String) session.getAttribute("productID");
+		  String productID = request.getParameter("productID");
 		  try {
+			  pst = connection.prepareStatement("INSERT INTO review (rating, fk_user, products_pk_product)" + "VALUES (?, 0, ?)");
+			  pst.setString(1, (String) request.getAttribute("rating"));
+			  pst.setString(2, productID);
+		 	  pst.execute();
 			  Class.forName(driver).newInstance();
 			  connection = DriverManager.getConnection(url + dbName, uname, pass);
 			  pst = connection.prepareStatement("SELECT rating FROM reviews WHERE pk_product = ?");
@@ -59,10 +63,11 @@ public class ratings extends HttpServlet {
 			  } else {
 				  tempRating = 0;
 			  }
-
+			  pst = connection.prepareStatement("UPDATE products SET rating = ? WHERE pk_product = ?");
+			  pst.setString(1, "" + tempRating);
+			  pst.setString(2, productID);
 		  }catch(Exception e){}
-		  
-		  request.getRequestDispatcher("fullProduct.jsp?productID=" + productID);
+		  response.sendRedirect("fullProduct.jsp?productID=" + productID);
 	}
 
 }
