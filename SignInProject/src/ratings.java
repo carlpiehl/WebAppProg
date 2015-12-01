@@ -38,25 +38,23 @@ public class ratings extends HttpServlet {
 		  ResultSet result = null;
 		  PreparedStatement pst = null;
 		  ResultSetMetaData rsmd = null;
-		  int columns = 0;
 		  String productID = request.getParameter("productID");
 		  try {
-			  pst = connection.prepareStatement("INSERT INTO review (rating, fk_user, products_pk_product)" + "VALUES (?, 0, ?)");
+			  Class.forName(driver).newInstance();
+			  connection = DriverManager.getConnection(url + dbName, uname, pass);
+			  pst = connection.prepareStatement("INSERT INTO review (rating, fk_user, products_pk_product) VALUES (?, 1, ?)");
 			  pst.setString(1, (String) request.getAttribute("rating"));
 			  pst.setString(2, productID);
 		 	  pst.execute();
-			  Class.forName(driver).newInstance();
-			  connection = DriverManager.getConnection(url + dbName, uname, pass);
-			  pst = connection.prepareStatement("SELECT rating FROM reviews WHERE pk_product = ?");
-			  pst.setString(1, productID);
+			  pst = connection.prepareStatement("SELECT * FROM review WHERE products_pk_product = ?");
+			  pst.setString(1, "1");
 			  result = pst.executeQuery();
-			  rsmd = result.getMetaData();
-			  columns = rsmd.getColumnCount();
 			  int rating = 0;
 			  int amount = 0;
 			  int tempRating = 0;
 			  while (result.next()) {
 			  	rating += Integer.parseInt(result.getString("rating"));
+			  	amount++;
 			  }
 			  if (amount != 0){
 			  	tempRating = rating / amount;
@@ -66,7 +64,8 @@ public class ratings extends HttpServlet {
 			  pst = connection.prepareStatement("UPDATE products SET rating = ? WHERE pk_product = ?");
 			  pst.setString(1, "" + tempRating);
 			  pst.setString(2, productID);
-		  }catch(Exception e){}
+			  pst.execute();
+		  }catch(Exception e){response.getWriter().write("EVERYTHING IS MESSED UP!");}
 		  response.sendRedirect("fullProduct.jsp?productID=" + productID);
 	}
 
