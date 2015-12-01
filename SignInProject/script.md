@@ -38,6 +38,9 @@ This thing is really powerful with those specs, at 50 grand it's a real steal. T
 *Add computer to the cart*
 
 Wow, look at that it works. Ok let's add another item.
+I can't quite remember what that really cool item was. Lets search for it.
+
+*search trenchcoat*
 
 *go into trenchcoat*
 
@@ -62,7 +65,7 @@ Now that we've taken you through the regular user stuff, lets take a look at the
 
 You can use the same login page that you would usually use, but this time you log in with an admin account.
 
-*Login in using admin credentials*
+*Login in using username todd and password todd*
 
 Once you've logged in you will automatically be sent to the admin homepage.
 This page gives you the option of adding or removing products from the database.
