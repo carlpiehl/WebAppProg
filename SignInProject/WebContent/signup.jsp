@@ -1,3 +1,11 @@
+<%-- jsp: signin
+     Description: This is a page that is called when pressing the "not a member"
+     			  button on the top menu. The user uses this to create and login into
+     			  a regular user account.
+	 Function:    This page displays username, email and password textfields 
+	 			  It uses these  fields to grab the corresponding information 
+	 			  from the user, and passes it along to SignupServlet.java.
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>

@@ -1,14 +1,7 @@
-<!-- 
-	Author: ONLINE STORE
-	
-	footer.jsp
-	
-		This file is appended to the bottom of pages designed to be the main content of the page.
-		
-	NOTES:
-		CARL: 'bundle' is not resolved in this page. It is declared in 'imports.jsp'. This shows an error,
-	but will still run just fine. Cannot declare 'bundle' again because duplicates also cause errors
- -->
+ <%-- jsp: footer
+     Description: This file is appended to the bottom of each pages.
+     Function: 	  It is designed to show our copyright information.
+--%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>

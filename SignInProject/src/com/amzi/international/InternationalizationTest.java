@@ -1,3 +1,17 @@
+/*
+   Class: CurrencyFormatTest
+   A class that is used to test whether the internationalisation is working properly
+   in regards to switching between English text to French text.
+   
+   Functions:
+   main()        - Initializes ResourceBundles "bundle1","bundle2","bundle3", and "bundle4"
+   							 - assigns Locales "defaultLocale", "frenchLocal", "enonexistentLocale"
+   							   to "bundle2","bundle3", and "bundle4"
+   							   and then displaying the result given by each bundle using displayValues()
+   displayValues - Outputs "hello", "goodbye", and "Do you speak _____?"
+   								 in the language associated to the referenced bundle
+   							 
+*/
 package com.amzi.international;
 
 import java.util.Locale;

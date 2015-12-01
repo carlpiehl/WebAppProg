@@ -1,3 +1,13 @@
+/*
+   Class: CurrencyFormatTest
+   A class that is used to test whether or not the internationalisation is working properly
+   in regards to switching the currency format between English and French.
+   
+   Functions:
+   main()        - takes a double "num", format it and outputs it in english
+   							 - then formats it again and outputs it in french.
+*/
+
 package com.amzi.international;
 
 import java.text.NumberFormat;

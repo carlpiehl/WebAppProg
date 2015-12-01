@@ -1,3 +1,10 @@
+<%-- jsp: AddItemToDB
+     Description: This is a page that is called by clicking the "add product to database"
+     			  button on "admin.jsp". It shows the required field and lets the user submit
+     			  information required for the making of a new product entry within the database.
+	 Function:    It then passes the required information to the AddItemToDBServlet.java 
+	 			  in order to process the product addition within the database.
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>
@@ -22,7 +29,7 @@
 				</tr>
 				<tr>
 					<td>Product Long Description:</td>
-					<td><input type="text" name="prodDesLong" required="required" /></td>
+					<td><input type="text" name="prodDescLong" required="required" /></td>
 					<%-- add password confirmation--%>
 				</tr>
 				<tr>

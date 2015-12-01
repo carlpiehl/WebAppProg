@@ -1,3 +1,23 @@
+/*
+   Class: addCartServlet
+   A class that that is called by pressing the "add to cart" within the "fullProduct.jsp" 
+   or one of the "+" buttons within the "cart.jsp".
+   
+   It is used to grab a HashMap<String, AtomicInt> called "cart" from the session
+   (or create one if it doesn't already exist),
+   
+   to find a product(using <String>) for the corresponding "productID"
+   (or add it to the cart if it doesn't already exist),
+   
+   increment its quantity(<AtomicInteger>) by one,
+   and store "cart" in the session.
+   
+   Functions:
+   doPost()					 - takes HttpServletRequest "request", HttpServletResponse "response"
+   									 and completes the above mentioned steps for the given "productID",
+   									 which is a parameter stored in request.
+   									 - then directs the application to run "cart.jsp"
+*/
 package com.amzi.servlets;
 
 import java.io.IOException;

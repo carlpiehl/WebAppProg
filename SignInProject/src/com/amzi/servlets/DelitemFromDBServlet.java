@@ -1,3 +1,19 @@
+/*
+   Class: DelitemFromDBServlet
+   A class that that is called by DelProductsFromDB.jsp in order to call DelitemFromDB.java and 
+   delete a product from within the "store_db" database.
+   
+   Functions:
+   doPost()   			 - takes HttpServletRequest "request", HttpServletResponse "response",
+      							   and grabs String "productID" from "request".
+   									 
+   									 - then passes this variable to an instance of DelitemFromDB.java 
+   									   using the function call  "delProduct".
+   									 
+   									 - then directs the application to run the adminHome.jsp
+   									  	 
+   NOTE: 						 - Used http://hmkcode.com/java-mysql/ tutorial for majority of this class
+*/
 package com.amzi.servlets;
 
 //IO packages
@@ -47,7 +63,7 @@ public class DelitemFromDBServlet extends HttpServlet{
 		delItem.delProduct(productID);
 		
 		out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
-		RequestDispatcher rd = request.getRequestDispatcher("/admin/adminHome.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
 		rd.include(request, response);
 		
 		out.close();

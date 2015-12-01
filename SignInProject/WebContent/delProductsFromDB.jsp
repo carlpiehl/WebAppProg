@@ -1,3 +1,10 @@
+<%-- jsp: delProductsFromDB
+     Description: This is a page that is called by clicking the "Remove products from database"
+     			  button on "admin.jsp". It shows the full product list and lets the user 
+     			  remove products from this list.
+	 Function:    It then passes the required information to the DelitemFromDBServlet.java 
+	 			  in order to process the product removal within the database.
+--%>
 <%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
 <html>
 <head>
@@ -93,5 +100,4 @@
 	</table>
 	<%@ include file="footer.jsp"%>
 	</body>
->>>>>>> refs/heads/cart2
 </html>
