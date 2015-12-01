@@ -81,7 +81,13 @@
 		double num = Double.parseDouble(result.getString("price"));
       	out.write("<br/>Price: "+ defaultFormat.format(num) + " and free shipping over " + defaultFormat.format(50));
       	out.write("<br/><p>");
+      	
+      	try{
       	out.write(result.getString("descriptionLong"));
+      	}catch (Exception e){
+      		out.write("Description not availabele");
+      		System.err.print(e.getMessage());
+      	}
       	out.write("</p>");
       }
   	result.close();
