@@ -82,9 +82,9 @@
 						if (j == 8) {
 							variant = result.getString(j);
 							if (urlID != null) {
-								urlID += "," + variant + ":1";// + cart.get(product).
+								urlID += "," + variant + ":" + cart.get(product);// + .
 							} else {
-								urlID = variant + ":1";
+								urlID = variant + ":" + cart.get(product);
 							}
 						}
 						out.write("<td><center>" + result.getString(j) + "</center></td>");
@@ -106,10 +106,7 @@
 									+ "> <input id='text' type='submit' value='Remove' ></form></center></td>");
 					//out.write("<td><center>" + session.getAttribute("name").toString() + "</center></td>");
 					out.write("</tr>");
-
 				}
-
-				out.write(urlID);
 
 				result.close();
 				stmt.close();
@@ -117,31 +114,15 @@
 			} catch (SQLException e) {
 				System.out.println("Error " + e);
 			}
-			//urlID = "https://kingd-myshopify-com.myshopify.com/cart/" + urlID;
-			urlID = "https://kingd-myshopify-com.myshopify.com/cart/3048807621:1,8802719557:1";
-			out.print(urlID);
+			urlID = "https://kingd-myshopify-com.myshopify.com/cart/" + urlID;
+			out.print("<a href="+urlID+">Checkout</a>");
 		%>
+		<br/>
+		<br/>
 	</table>
 
-	<div data-embed_type="product"
-		data-shop="kingd-myshopify-com.myshopify.com"
-		data-product_name="Another Product" data-product_handle="another-product"
-		data-has_image="false" data-display_size="compact"
-		data-redirect_to="checkout" data-buy_button_text="Buy now"
-		data-buy_button_out_of_stock_text="Out of Stock"
-		data-buy_button_product_unavailable_text="Unavailable"
-		data-button_background_color="7db461" data-button_text_color="ffffff"
-		data-product_modal="false" data-product_title_color="000000"
-		data-next_page_button_text="Next page"></div>
-	<script type="text/javascript">
-		document.getElementById('ShopifyEmbedScript')
-				|| document
-						.write('<script type="text/javascript" src="https://widgets.shopifyapps.com/assets/widgets/embed/client.js" id="ShopifyEmbedScript"><\/script>');
-	</script>
-	<noscript>
-		<a href="https://kingd-myshopify-com.myshopify.com/cart/3048807621:1,8802719557:1"
-			target="_blank">Buy Product</a>
-	</noscript>
+  <%// <a href="https://kingd-myshopify-com.myshopify.com/cart/8802719557:1&9193644997:1">Permalink</a>%>
+
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
