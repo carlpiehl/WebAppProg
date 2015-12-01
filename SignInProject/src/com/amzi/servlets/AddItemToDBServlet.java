@@ -66,7 +66,7 @@ public class AddItemToDBServlet extends HttpServlet{
     	//TODO: Add validation, write according message below
     	addItem.setUpProduct(prodName, prodDescShort, prodDesLong, prodPrice, inStock, rating);
 		
-		//out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
+		out.print("<p style=\"color:green\">Check your database to see if it worked!</p>");
 		RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
 		rd.include(request, response);
 		

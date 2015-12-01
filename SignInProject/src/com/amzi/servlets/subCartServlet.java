@@ -57,8 +57,8 @@ public class subCartServlet extends HttpServlet{
 		}
 		session.setAttribute("cart", cart);
 		//------------------------------------------------------------------------------------------------------
-		RequestDispatcher rd = request.getRequestDispatcher("fullProduct.jsp?productID="+productID);
 		
+		RequestDispatcher rd = request.getRequestDispatcher("fullProduct.jsp?productID="+productID);
 		out.print("Product has been added to cart");
 		rd.include(request, response);
 		response.sendRedirect("cart.jsp");

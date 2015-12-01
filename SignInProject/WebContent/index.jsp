@@ -13,6 +13,7 @@
 	<title><fmt:message key="my.welcome"/></title>
 </head>
 <body>
+	
 	<h3><fmt:message key="my.welcome"/></h3>
 	<h3><fmt:message key="my.today's_deals"/>!!!</h3>
 	<p><fmt:message key="my.list_of_deals"/></p>
