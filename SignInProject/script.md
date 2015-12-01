@@ -33,7 +33,7 @@ These are all our cool products. We've got a lot of good things for sale, Trench
 
 *Click on said computer*
 
-This thing is really powerful with those specs, at 50 grand it's a real steal. Top rated too. You know what I've been saving up for some time I think I'd like to buy this beast of a machine. We can add it to the cart.
+This thing is really powerful with those specs, at 50 grand it's a real steal. Top rated too. You know what I've been saving up for some time I think I'd like to buy this beast of a machine. Lets give it a rating of 1 star. We can add it to the cart.
 
 *Add computer to the cart*
 
