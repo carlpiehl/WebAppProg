@@ -50,7 +50,7 @@
 		<input id="search" type="submit" value="search" />
 		<script>
 			document.getElementById("search").onclick = function () {
-				location.href = "http://localhost:8081/SignInProject/search.jsp?productName=" + document.getElementById("searchText").value;
+				location.href = "http://localhost:8080/SignInProject/search.jsp?productName=" + document.getElementById("searchText").value;
 			};
 		</script>
 	</div>
