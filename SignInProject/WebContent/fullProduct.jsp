@@ -1,8 +1,18 @@
+<%-- jsp: fullProduct
+     Description: This is a page that is called by clicking on one of the products listed in product.jsp
+     			  or on the links presented when using search.jsp. It is used to show more information
+     			  about product that catches a user's interest, as well as allows the user to be able to 
+     			  add this product to cart.
+	 Function:    It takes productID that is handed to it by one of the above mentioned classes,
+	 			  then uses it to search for a product within the products table and displays
+	 			  all of the information regarding this product that is stored within the database.
+	 			  It also has an "add to cart" link that passes the productID to addCartServlet.java.
+--%>
 <%@page import="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="java.sql.*, javax.sql.*, javax.naming.*"%>
+<%@page import="java.sql.*, javax.sql.*, javax.naming.*, java.text.NumberFormat"%>
 <html>
 	<head>
 		<%@ include file="header.jsp"%>
@@ -10,7 +20,21 @@
 		<title><fmt:message key="my.product_page"/></title>
 	</head>
 <body>
-  <%
+	<%
+	Locale french = new Locale("fr", "CA");
+	NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+	String reqLang = request.getParameter("language");
+	if (reqLang == null) {
+		reqLang = "en_US";
+	}
+	try {
+		if (reqLang.equals("fr_CA")) {
+			defaultFormat = NumberFormat.getCurrencyInstance(french);
+		}
+	} catch (Exception e) {
+		
+	}
+  
   Connection connection = null;
   String url = "jdbc:mysql://localhost:3306/";
   String dbName = "store_db";
@@ -53,7 +77,8 @@
       	for (; i < 5; i++){
       		out.write("<img src=\"images/antistar.png\"/>");
       	}
-      	out.write("<br/>Price: $"+ result.getString("price") + " and free shipping over $50");
+		double num = Double.parseDouble(result.getString("price"));
+      	out.write("<br/>Price: "+ defaultFormat.format(num) + " and free shipping over " + defaultFormat.format(50));
       	out.write("<br/><p>");
       	out.write(result.getString("descriptionLong"));
       	out.write("</p>");
