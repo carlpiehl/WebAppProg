@@ -1,3 +1,11 @@
+<%-- jsp: cart
+     Description: This is a page that is accessed by clicking the "add to cart" button the fullProduct.jsp,
+     			  or by clicking the cart option from within the header menu. It takes the "cart" value
+     			  stored in session and uses it to display the items that the current user has added to cart
+     			  for potential purchase. It also allows users to purchase these items through shopify.
+	 Purpose:     It displays the list of current items that are stored in cart, allowing the user to 
+	 			  change the quantity of each item being purchased, and remove items from cart. 
+--%>
 <%@ page
 	import="java.sql.*, javax.sql.*, javax.naming.*, java.util.*, java.util.concurrent.atomic.AtomicInteger"
 	language="java" contentType="text/html; charset=ISO-8859-1"
@@ -7,11 +15,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="header.jsp"%>
-<%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle"%>
+<%@ page
+	import="java.io.*, java.util.Locale, java.util.ResourceBundle, java.text.NumberFormat"%>
 <title><fmt:message key="my.cart" /></title>
 </head>
 
-<%
+<%	
+	Locale french = new Locale("fr", "CA");
+	NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+	String reqLang = request.getParameter("language");
+	if (reqLang == null) {
+		reqLang = "en_US";
+	}
+	try {
+		if (reqLang.equals("fr_CA")) {
+			defaultFormat = NumberFormat.getCurrencyInstance(french);
+		}
+	} catch (Exception e) {
+		
+	}
+	double num;
+	
 	Connection connection = null;
 	String url = "jdbc:mysql://localhost:3306/";
 	String dbName = "store_db";
@@ -36,11 +60,14 @@
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-
-	stmt = connection.createStatement();
-	result = stmt.executeQuery("SELECT * FROM products");
-	rsmd = result.getMetaData();
-	columns = rsmd.getColumnCount();
+	try {
+		stmt = connection.createStatement();
+		result = stmt.executeQuery("SELECT * FROM products");
+		rsmd = result.getMetaData();
+		columns = rsmd.getColumnCount();
+		} catch(Exception e) {
+			
+		}
 %>
 <body>
 	<h1>
@@ -51,22 +78,43 @@
 			<%
 				try {
 					for (int i = 1; i <= columns; i++) {
-						if (i == 1 || i == 4 || i == 6 || i == 7) {
-							continue;
-						}
-						if (i == 3) {
-							out.write("<th> short description </th>");
-						} else {
-							out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
-						}
+						/*						if (i == 1 || i == 4 || i == 6 || i == 7) {
+						continue;
+					}*/
+					switch(i){
+					case 2:
+						%><th><fmt:message key="my.name" /></th><%
+						break;
+					case 3:
+						%><th><fmt:message key="my.short_description" /></th><%
+						break;
+					case 5:
+						%><th><fmt:message key="my.price" /></th><%
+						break;
+					case 6:
+						%><th><fmt:message key="my.variant_id" /></th><%
+						break;
+					case 8:
+						break;
+					default:
+						continue;
 					}
-					out.write("<th> quantity </th>");
-					out.write("<th> increase </th>");
-					out.write("<th> decrease </th>");
-					out.write("<th> Remove </th>");
-			%>
+					
+					/* 
+					if (i == 3) {
+						out.write("<th> short description </th>");
+					} else {
+						out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
+					} */
+				}
+		%>
+			<th><fmt:message key="my.quantity" />
+			<th><fmt:message key="my.increase" />
+			<th><fmt:message key="my.decrease" />
+			<th><fmt:message key="my.remove" />
 		</tr>
 		<%
+			try {
 			for (String product : cart.keySet()) {
 					int productID = Integer.parseInt(product);
 					pst = connection.prepareStatement("SELECT * FROM products WHERE pk_product = ?");
@@ -76,7 +124,11 @@
 					result.next();
 					out.write("<tr>");
 					for (int j = 1; j <= columns; j++) {
-						if (j == 1 || j == 4 || j == 6 || j == 7) {
+						if (j == 5){
+							num = Double.parseDouble(result.getString("price"));
+							out.write("<td><center>" + defaultFormat.format(num) + "</center></td>");
+						}
+						if (j == 1 || j == 4 || j == 5 || j == 6 || j == 7) {
 							continue;
 						}
 						if (j == 8) {
@@ -107,21 +159,25 @@
 					//out.write("<td><center>" + session.getAttribute("name").toString() + "</center></td>");
 					out.write("</tr>");
 				}
-
-				result.close();
-				stmt.close();
-				connection.close();
-			} catch (SQLException e) {
-				System.out.println("Error " + e);
-			}
+			} catch (Exception e) {}
+		try{
+			out.write(urlID);
+		} catch (Exception e) {}
+		
+			result.close();
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			System.out.println("Error " + e);
+		}
 			urlID = "https://kingd-myshopify-com.myshopify.com/cart/" + urlID;
 			out.print("<a href="+urlID+">Checkout</a>");
 		%>
-		<br/>
-		<br/>
+		<br />
+		<br />
 	</table>
 
-  <%// <a href="https://kingd-myshopify-com.myshopify.com/cart/8802719557:1&9193644997:1">Permalink</a>%>
+	<%// <a href="https://kingd-myshopify-com.myshopify.com/cart/8802719557:1&9193644997:1">Permalink</a>%>
 
 	<%@ include file="footer.jsp"%>
 </body>
