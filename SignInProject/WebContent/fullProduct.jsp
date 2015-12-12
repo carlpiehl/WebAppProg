@@ -8,18 +8,17 @@
 	 			  all of the information regarding this product that is stored within the database.
 	 			  It also has an "add to cart" link that passes the productID to addCartServlet.java.
 --%>
-<%@page
-	import="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO"%>
+<%@page import="com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.IO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="java.sql.*, javax.sql.*, javax.naming.*, java.text.NumberFormat"%>
 <html>
-<head>
-<%@ include file="header.jsp"%>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title><fmt:message key="my.product_page" /></title>
-</head>
+	<head>
+		<%@ include file="header.jsp"%>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title><fmt:message key="my.product_page"/></title>
+	</head>
 <body>
 	<%
 	Locale french = new Locale("fr", "CA");
@@ -103,15 +102,20 @@
               }
       }catch(SQLException e){}
   }
+  //ratings    
+  	if (session.getAttribute("name") != null){
+    	  session.setAttribute("productId", request.getParameter("productID"));
+      	  out.write("<form action=\"ratings\" method=\"post\"><input type='hidden' name= 'productID' value=" + productID + "><select name=\"rating\"><option value=\"1\">1</option><option value=\"2\">2</option><option value=\"3\">3</option><option value=\"4\">4</option><option value=\"5\">5</option></select><input type=\"submit\" value=\"Submit\">");
+      }
     %>
-	<div id="addToCart">
-		<form action="addCartServlet" method="post">
-			<input type="hidden" name="productID" value="<%=productID%>">
-			<input id="cartButton" type="submit" value="add to cart">
-		</form>
-	</div>
-	</div>
-
-	<%@ include file="footer.jsp"%>
+    <div id="addToCart">
+    	<form action="addCartServlet" method="post">
+      		<input type="hidden" name="productID" value="<%=productID%>">
+      		<input id="cartButton" type="submit" value="add to cart" >
+    	</form>
+    </div>
+    </div>
+    
+  <%@ include file="footer.jsp"%>
 </body>
 </html>

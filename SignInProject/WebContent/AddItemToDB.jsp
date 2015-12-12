@@ -29,7 +29,7 @@
 				</tr>
 				<tr>
 					<td>Product Long Description:</td>
-					<td><input type="text" name="prodDesLong" required="required" /></td>
+					<td><input type="text" name="prodDescLong" required="required" /></td>
 					<%-- add password confirmation--%>
 				</tr>
 				<tr>

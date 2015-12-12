@@ -15,7 +15,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="header.jsp"%>
-<%@ page import="java.io.*, java.util.Locale, java.util.ResourceBundle, java.text.NumberFormat"%>
+<%@ page
+	import="java.io.*, java.util.Locale, java.util.ResourceBundle, java.text.NumberFormat"%>
 <title><fmt:message key="my.cart" /></title>
 </head>
 
@@ -34,7 +35,7 @@
 		
 	}
 	double num;
-
+	
 	Connection connection = null;
 	String url = "jdbc:mysql://localhost:3306/";
 	String dbName = "store_db";
@@ -57,16 +58,16 @@
 		Class.forName(driver).newInstance();
 		connection = DriverManager.getConnection(url + dbName, uname, pass);
 	} catch (Exception e) {
-		//e.printStackTrace();
+		e.printStackTrace();
 	}
 	try {
-	stmt = connection.createStatement();
-	result = stmt.executeQuery("SELECT * FROM products");
-	rsmd = result.getMetaData();
-	columns = rsmd.getColumnCount();
-	} catch(Exception e) {
-		
-	}
+		stmt = connection.createStatement();
+		result = stmt.executeQuery("SELECT * FROM products");
+		rsmd = result.getMetaData();
+		columns = rsmd.getColumnCount();
+		} catch(Exception e) {
+			
+		}
 %>
 <body>
 	<h1>
@@ -77,45 +78,44 @@
 			<%
 				try {
 					for (int i = 1; i <= columns; i++) {
-/*						if (i == 1 || i == 4 || i == 6 || i == 7) {
-							continue;
-						}*/
-						switch(i){
-						case 2:
-							%><th><fmt:message key="my.name" /></th><%
-							break;
-						case 3:
-							%><th><fmt:message key="my.short_description" /></th><%
-							break;
-						case 5:
-							%><th><fmt:message key="my.price" /></th><%
-							break;
-						case 6:
-							%><th><fmt:message key="my.variant_id" /></th><%
-							break;
-						case 8:
-							break;
-						default:
-							continue;
-						}
-						
-						/* 
-						if (i == 3) {
-							out.write("<th> short description </th>");
-						} else {
-							out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
-						} */
+						/*						if (i == 1 || i == 4 || i == 6 || i == 7) {
+						continue;
+					}*/
+					switch(i){
+					case 2:
+						%><th><fmt:message key="my.name" /></th><%
+						break;
+					case 3:
+						%><th><fmt:message key="my.short_description" /></th><%
+						break;
+					case 5:
+						%><th><fmt:message key="my.price" /></th><%
+						break;
+					case 6:
+						%><th><fmt:message key="my.variant_id" /></th><%
+						break;
+					case 8:
+						break;
+					default:
+						continue;
 					}
-			%>
-					<th><fmt:message key="my.quantity" />
-					<th><fmt:message key="my.increase" />
-					<th><fmt:message key="my.decrease" />
-					<th><fmt:message key="my.remove" />
-			
+					
+					/* 
+					if (i == 3) {
+						out.write("<th> short description </th>");
+					} else {
+						out.write("<th>" + rsmd.getColumnLabel(i) + "</th>");
+					} */
+				}
+		%>
+			<th><fmt:message key="my.quantity" />
+			<th><fmt:message key="my.increase" />
+			<th><fmt:message key="my.decrease" />
+			<th><fmt:message key="my.remove" />
 		</tr>
 		<%
-		try{	
-		for (String product : cart.keySet()) {
+			try {
+			for (String product : cart.keySet()) {
 					int productID = Integer.parseInt(product);
 					pst = connection.prepareStatement("SELECT * FROM products WHERE pk_product = ?");
 					pst.setString(1, product);
@@ -134,9 +134,9 @@
 						if (j == 8) {
 							variant = result.getString(j);
 							if (urlID != null) {
-								urlID += "," + variant + ":1";// + cart.get(product).
+								urlID += "," + variant + ":" + cart.get(product);// + .
 							} else {
-								urlID = variant + ":1";
+								urlID = variant + ":" + cart.get(product);
 							}
 						}
 						out.write("<td><center>" + result.getString(j) + "</center></td>");
@@ -152,48 +152,33 @@
 					out.write(
 							"<td><center> <form action='subCartServlet' method='post'> <input type='hidden' name= 'productID' value="
 									+ productID + "> <input id='text' type='submit' value='-' ></form></center></td>");
-					%><td><center> <form action='removeFromCartServlet' method='post'> <input type='hidden' name= 'productID' value=productID>
-								<input id='text' type='submit' value='<fmt:message key="my.remove"/>' ></form></center></td><%
+					out.write(
+							"<td><center> <form action='removeFromCartServlet' method='post'> <input type='hidden' name= 'productID' value="
+									+ productID
+									+ "> <input id='text' type='submit' value='Remove' ></form></center></td>");
 					//out.write("<td><center>" + session.getAttribute("name").toString() + "</center></td>");
 					out.write("</tr>");
-
 				}
-		} catch (Exception e) {}
-			try{
-				out.write(urlID);
 			} catch (Exception e) {}
-			
-				result.close();
-				stmt.close();
-				connection.close();
-			} catch (SQLException e) {
-				System.out.println("Error " + e);
-			}
-			//urlID = "https://kingd-myshopify-com.myshopify.com/cart/" + urlID;
-			urlID = "https://kingd-myshopify-com.myshopify.com/cart/3048807621:1,8802719557:1";
-			//out.print(urlID);
+		try{
+			out.write(urlID);
+		} catch (Exception e) {}
+		
+			result.close();
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			System.out.println("Error " + e);
+		}
+			urlID = "https://kingd-myshopify-com.myshopify.com/cart/" + urlID;
+			out.print("<a href="+urlID+">Checkout</a>");
 		%>
+		<br />
+		<br />
 	</table>
 
-	<div data-embed_type="product"
-		data-shop="kingd-myshopify-com.myshopify.com"
-		data-product_name="Another Product" data-product_handle="another-product"
-		data-has_image="false" data-display_size="compact"
-		data-redirect_to="checkout" data-buy_button_text="<fmt:message key="my.buy_now"/>"
-		data-buy_button_out_of_stock_text="Out of Stock"
-		data-buy_button_product_unavailable_text="Unavailable"
-		data-button_background_color="7db461" data-button_text_color="ffffff"
-		data-product_modal="false" data-product_title_color="000000"
-		data-next_page_button_text="Next page"></div>
-	<script type="text/javascript">
-		document.getElementById('ShopifyEmbedScript')
-				|| document
-						.write('<script type="text/javascript" src="https://widgets.shopifyapps.com/assets/widgets/embed/client.js" id="ShopifyEmbedScript"><\/script>');
-	</script>
-	<noscript>
-		<a href="https://kingd-myshopify-com.myshopify.com/cart/3048807621:1,8802719557:1"
-			target="_blank">Buy Product</a>
-	</noscript>
+	<%// <a href="https://kingd-myshopify-com.myshopify.com/cart/8802719557:1&9193644997:1">Permalink</a>%>
+
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

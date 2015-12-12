@@ -58,7 +58,6 @@ public class LoginServlet extends HttpServlet{
         //if(LoginDao.validate(n, p)){
         	session.setAttribute("name", n);
         	session.setAttribute("userStatus", userStatus);
-        	
         	if (userStatus[2] == 0){//if not admin go to welcome page
         			RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");
         			rd.forward(request,response);
