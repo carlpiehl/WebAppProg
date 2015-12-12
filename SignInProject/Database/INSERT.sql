@@ -29,4 +29,7 @@ INSERT INTO products (name, descriptionShort, descriptionLong, price, quantity, 
 VALUES("ULTIMATE NEXT-GEN GAMING COMPUTER VERY GOOD", "THIS IS THE ULTIMATE NEXT GENERATION IN COMUTER GAMING", "<img src='pc.jpg'/><br/>CPU: i7 ultimate edition overclocked to 4.20 GHz<br/>GPU: GTX Titan<br/>Memory: 64GB DDR420<br/>Also, Ultimate sick next-gen liquid cooling.<br/>DO NOT BUY THIS MACHINE IF YOU ARE NOT HARDCORE!", "50000.00", 10, 5.0, "9197560261");
 
 INSERT INTO products (name, descriptionShort, descriptionLong, price, quantity, rating, variant_id)
-VALUES("Product", "A Product", "<img src='pc.jpg'/><br/>Product: For Testing and Stuff", "0.01", 10, 5.0, "8802719557");
+VALUES("Product", "A Product", "<img src='pc.jpg'/><br/>Product: For Testing and Stuff", "0.01", 10, 5.0, "8802719557"); 
+
+DELETE FROM users WHERE pk_user < 100;
+INSERT INTO users (uname, email, pass, is_admin) VALUES ("Liam", "Liam@Liam.Liam", "Liam", 1);
