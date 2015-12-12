@@ -41,7 +41,7 @@
 					<td><input type="text" name="inStock" required="required" /></td>
 				</tr>
 				<tr>
-					<td>Rating ( 2.1 decimal value only):</td>
+					<td>Rating ( 1.1 decimal value no greater then 5.0):</td>
 					<td><input type="text" name="rating" required="required" /></td>
 				</tr>
 				<tr>
